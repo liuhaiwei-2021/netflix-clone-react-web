@@ -1,0 +1,14 @@
+{
+	"email": {
+		"label": "Email:",
+		"placeholder": "email@mail.com",
+		"type": "email",
+		"required": true
+	},
+	"password": {
+		"label": "Password:",
+		"placeholder": "*******",
+		"type": "password",
+		"required": true
+	}
+}

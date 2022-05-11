@@ -1,0 +1,11 @@
+.not-found {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.not-found img {
+	width: 500px;
+	height: 500px;
+
+	object-fit: cover;
+}

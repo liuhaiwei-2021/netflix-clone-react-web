@@ -1,0 +1,13 @@
+/* all */
+* {
+	font-family: "Poppins", sans-serif;
+	box-sizing: border-box;
+}
+
+/* html, body */
+html,
+body {
+	background: #ffffff;
+	margin: 0;
+	padding: 0;
+}
