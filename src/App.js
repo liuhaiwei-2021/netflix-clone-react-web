@@ -1,16 +1,15 @@
+//NPM packages
 import { Route, Routes } from "react-router-dom";
+//Project files
 import RequireAuth from "./components/authentication/RequireAuth";
 import Unauthorized from "./components/authentication/Unauthorized";
 import Layout from "./pages/Layout";
-import Navigation from "./components/shared/Navigation";
-
 import LogIn from "./pages/LogIn";
-
+import Landing from "./pages/Landing";
 import Missing from "./pages/Missing";
 import RecoverPassword from "./pages/RecoverPassword";
 import SignUp from "./pages/SignUp";
 import Modal from "./components/shared/Modal";
-
 import "./styles/App.css";
 
 export default function App() {
@@ -26,6 +25,7 @@ export default function App() {
 				<Route path="/" element={<Layout />}>
 					{/* public routes */}
 
+					<Route path="/" element={<Landing />} />
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/recover" element={<RecoverPassword />} />
 					<Route path="/signup" element={<SignUp />} />

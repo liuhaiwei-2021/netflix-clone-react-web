@@ -1,0 +1,118 @@
+.landing-page {
+	color: #fff;
+}
+
+/* header */
+.header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: flex-start;
+	background-color: transparent;
+	transition: background-color 0.5s;
+	position: relative;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding-top: 20px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 5rem;
+	z-index: 10;
+}
+.nfLogo {
+	fill: #e50914;
+	height: 36px;
+	margin-right: 401px;
+}
+.redButton {
+	background-color: #e50914;
+	line-height: normal;
+	padding: 7px 17px;
+	font-weight: 400;
+	font-size: 1rem;
+	float: right;
+	border: none;
+	color: #fff;
+}
+
+/* hero card */
+
+.story-card-background {
+	z-index: 0;
+	position: absolute;
+	top: -70px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	overflow: hidden;
+}
+.story-card-text {
+	position: relative;
+	width: 100%;
+	padding: 75px 0;
+	max-width: 950px;
+	margin: 0 auto;
+	text-align: center;
+	z-index: 1;
+}
+
+/* email */
+
+.placeLabel {
+	display: block;
+	left: 10px;
+	/* color: #8c8c8c; */
+	color: red;
+	text-align: start;
+}
+.email-form {
+	display: flex;
+	flex-direction: column;
+	padding: auto;
+	height: 150px;
+	align-items: center;
+}
+
+.email-form-lockup {
+	display: flex;
+	flex-direction: row;
+	width: 80%;
+	height: 80px;
+	/* text-align: center; */
+	align-items: center;
+	justify-content: center;
+}
+.simpleForm {
+	width: 500px;
+	height: 80px;
+	background-color: #fff;
+}
+.nfTextField {
+	width: 500px;
+	height: 70px;
+	padding: 10px 10px 0;
+	border: none;
+}
+
+.story-cta-container {
+	height: 80px;
+}
+.btn-red {
+	height: 80px;
+	background-color: #e50914;
+	color: #fff;
+	font-size: 30px;
+	padding: 0 30px;
+}
+.email-form-text {
+	max-width: 450px;
+	margin: 0 auto;
+	font-weight: 400;
+}
+
+.email-form-title {
+	padding-bottom: 20px;
+}
