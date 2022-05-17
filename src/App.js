@@ -24,7 +24,6 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					{/* public routes */}
-
 					<Route path="/" element={<Landing />} />
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/recover" element={<RecoverPassword />} />

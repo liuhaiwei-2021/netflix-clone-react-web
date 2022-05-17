@@ -10,7 +10,8 @@ import { readDocument } from "../scripts/fireStore";
 
 import form from "../data/loginForm.json";
 import InputField from "../components/shared/InputField";
-import "../styles/SignUp.css";
+import "../styles/LogIn.css";
+import LoginWrapperBackground from "../components/login/LoginWrapperBackground";
 
 export default function LogIn() {
 	//Global state
@@ -50,20 +51,24 @@ export default function LogIn() {
 	}
 
 	return (
-		<div className="sign-up">
-			<h1>Log In</h1>
-			<h2>Start choose your future today!</h2>
-			<form onSubmit={onLogin}>
-				<InputField setup={form.email} state={[email, setEmail]} />
-				<InputField setup={form.password} state={[password, setPassword]} />
-				<button className="btn-sign-up">LOG IN</button>
-			</form>
-			<p>
-				<Link to="/recover">Forget your password?</Link>
-			</p>
-			<p>
-				<Link to="/signup">Creat a new account</Link>
-			</p>
+		<div className="login-wrapper">
+			<LoginWrapperBackground />
+			<div className="nfHeader login-header"></div>
+			<div className="login-body">
+				<h1>Sign In</h1>
+				<form className="login-form" onSubmit={onLogin}>
+					<InputField setup={form.email} state={[email, setEmail]} />
+					<InputField setup={form.password} state={[password, setPassword]} />
+					<button className="btn-sign-up">Sign In</button>
+				</form>
+				<p>
+					<Link to="/recover">Forget your password?</Link>
+				</p>
+				<p>
+					<Link to="/signup">Creat a new account</Link>
+				</p>
+			</div>
+			<div className="site-footer-wrapper"></div>
 		</div>
 	);
 }

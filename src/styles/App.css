@@ -1,6 +1,10 @@
 .main {
 	display: block;
 }
+.appMountPoint {
+	background-color: #000;
+	color: #fff;
+}
 .container {
 	width: 80%;
 	margin: 0 auto;
@@ -9,40 +13,18 @@
 .content {
 	display: block;
 	margin: 0 auto;
-	margin-top: 72px;
+	/* margin-top: 70px; */
 }
-h1,
-h2,
-h3,
-p,
-ul,
-div {
-	margin: 0;
-	padding: 0;
-}
+
 li {
 	list-style-type: none;
 }
-h3 {
-	font-size: 23px;
-}
-p {
-	margin: 2px 0;
-}
+
 a {
 	text-decoration: none;
 	color: #fff;
 }
-.btn-add,
-.btn-edit,
-.btn-delete,
-.btn-active {
-	height: 44px;
-	color: #000;
-	background-color: #f8f9fa;
-	border-color: #f8f9fa;
-	border-radius: 8px;
-}
+
 .loader {
 	position: absolute;
 	background: #bebebe;

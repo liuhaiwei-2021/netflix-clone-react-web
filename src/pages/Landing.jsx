@@ -1,17 +1,10 @@
+import Header from "../components/shared/Header";
 import "../styles/Landing.css";
 
 export default function Landing() {
 	return (
 		<div className="landing-page">
-			<div className="header">
-				<span className="story-logo nfLogo">
-					<img src="assets/images/icons8-netflix-108.svg" alt="logo-108" />
-				</span>
-				<div className="language-container"></div>
-				<a href="/login" className="authLinks ">
-					<button className="redButton">Sign In</button>
-				</a>
-			</div>
+			<Header />
 			<div className="story-cards">
 				<div className="story-card hero-card">
 					<div className="story-card-background">
