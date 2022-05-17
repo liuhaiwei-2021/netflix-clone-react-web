@@ -55,18 +55,48 @@ export default function LogIn() {
 			<LoginWrapperBackground />
 			<div className="nfHeader login-header"></div>
 			<div className="login-body">
-				<h1>Sign In</h1>
-				<form className="login-form" onSubmit={onLogin}>
-					<InputField setup={form.email} state={[email, setEmail]} />
-					<InputField setup={form.password} state={[password, setPassword]} />
-					<button className="btn-sign-up">Sign In</button>
-				</form>
-				<p>
-					<Link to="/recover">Forget your password?</Link>
-				</p>
-				<p>
-					<Link to="/signup">Creat a new account</Link>
-				</p>
+				<div className="login-content">
+					<div className="login-form-main">
+						<h1 className="login-title">Sign In</h1>
+						<form className="login-form" onSubmit={onLogin}>
+							<InputField setup={form.email} state={[email, setEmail]} />
+							<InputField setup={form.password} state={[password, setPassword]} />
+							<button className="login-button">Sign In</button>
+							<div className="login-form-help">
+								<div className="login-remember-me">
+									<input
+										type="checkbox"
+										name="rememberMe"
+										id="bxid_rememberMe_true"
+									/>
+									<label htmlFor="bxid_rememberMe_true">
+										<span className="login-remember-me-label-text">
+											Remember me
+										</span>
+									</label>
+								</div>
+								<Link to="/recover" className="login-help-link">
+									Need help?
+								</Link>
+							</div>
+						</form>
+					</div>
+
+					<div className="login-form-other">
+						<div className="login-signup-now">
+							<p>
+								New to Netflix?
+								<Link to="/signup"> Sign up now.</Link>
+							</p>
+						</div>
+						<p className="term-of-use">
+							<span>
+								This page is protected by Google reCAPTCHA to ensure you're not a
+								bot. Learn more.
+							</span>
+						</p>
+					</div>
+				</div>
 			</div>
 			<div className="site-footer-wrapper"></div>
 		</div>
