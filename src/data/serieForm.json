@@ -5,27 +5,32 @@
 		"required": true
 	},
 	"category": {
-		"label": " category",
-		"placeholder": "movie/series/document...",
+		"label": " Category",
+		"placeholder": "series",
 		"required": true
 	},
 	"season": {
-		"label": "season",
-		"placeholder": "1...",
+		"label": "Season",
+		"placeholder": "3...",
 		"required": true
 	},
 	"episodeNumber": {
-		"label": "episode",
+		"label": "Episode",
 		"placeholder": "1...",
 		"required": true
 	},
+	"youtubeID": {
+		"label": "YoutubeID",
+		"placeholder": "youtubeID",
+		"required": true
+	},
 	"description": {
-		"label": " description",
+		"label": " Description",
 		"placeholder": "description...",
 		"required": true
 	},
 	"genre": {
-		"label": "genre",
+		"label": "Genre",
 		"placeholder": "genre...",
 		"required": true
 	}

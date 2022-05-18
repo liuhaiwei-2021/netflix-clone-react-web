@@ -10,14 +10,16 @@ import { useSeries } from "../../state/SeriesContext";
 import { useModal } from "../../state/ModalContext";
 import Error from "../shared/Error";
 import InputField from "../shared/InputField";
+import "../../styles/CreateForm.css";
 
 export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
 	const [name, setName] = useState("Downton Abbey");
 	const [category, setCategory] = useState("series");
-	const [season, setSeason] = useState(1);
+	const [season, setSeason] = useState(3);
 	const [episodeNumber, setEpisodeNumber] = useState(1);
+	const [youtubeID, setYoutubeID] = useState("8eZ_w0kMa9A");
 	const [description, setDescription] = useState(
 		"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011."
 	);
@@ -38,6 +40,7 @@ export default function CreateForm() {
 			cateory: category,
 			season: season,
 			episodeNumber: episodeNumber,
+			youtubeID: youtubeID,
 			description:
 				"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011.",
 			imgURL: "",
@@ -46,7 +49,7 @@ export default function CreateForm() {
 
 		const path = "/categories/" + category + "/" + name + "/season" + season + "/episodes/";
 		const id = "episode" + episodeNumber;
-		const fileName = `${name}.png`;
+		const fileName = `${id}-${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);
 		newSerie.imgURL = imgURL;
@@ -84,6 +87,7 @@ export default function CreateForm() {
 			<InputField setup={form.category} state={[category, setCategory]} />
 			<InputField setup={form.season} state={[season, setSeason]} />
 			<InputField setup={form.episodeNumber} state={[episodeNumber, setEpisodeNumber]} />
+			<InputField setup={form.youtubeID} state={[youtubeID, setYoutubeID]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 

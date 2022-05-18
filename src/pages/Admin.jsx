@@ -6,15 +6,15 @@ import CreateForm from "../components/admin/CreateForm";
 export default function Admin() {
 	const { setModal } = useModal();
 
-	const linkID = "8eZ_w0kMa9A";
+	// const linkID = "8eZ_w0kMa9A";
 	return (
 		<div className="admin">
 			<button className="btn-add" onClick={() => setModal(<CreateForm />)}>
-				+Add a new item
+				+Add a new episode
 			</button>
 			<button>documents</button>
 			<button>movies</button>
-			<Player linkID={linkID} />
+			{/* <Player linkID={linkID} /> */}
 		</div>
 	);
 }

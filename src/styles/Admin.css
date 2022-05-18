@@ -3,6 +3,7 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	gap: 24px 24px;
 	border-color: beige;
+	padding: 48px;
 }
 .admin button {
 	display: inline-block;
