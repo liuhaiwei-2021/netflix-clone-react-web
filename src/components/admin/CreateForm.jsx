@@ -1,10 +1,10 @@
 //NPM packages
 import { useState } from "react";
-// project files
 
+// Project files
 import form from "../../data/serieForm.json";
 import { createFile } from "../../scripts/cloudStorage";
-import { createDocument } from "../../scripts/fireStore";
+import { createDocumentWithId } from "../../scripts/fireStore";
 import Loader from "../../scripts/Loader";
 import { useSeries } from "../../state/SeriesContext";
 import { useModal } from "../../state/ModalContext";
@@ -14,8 +14,13 @@ import InputField from "../shared/InputField";
 export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
-	const [name, setName] = useState("downton abbey");
-	const [description, setDescription] = useState("vvvv");
+	const [name, setName] = useState("Downton Abbey");
+	const [category, setCategory] = useState("series");
+	const [season, setSeason] = useState(1);
+	const [episodeNumber, setEpisodeNumber] = useState(1);
+	const [description, setDescription] = useState(
+		"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011."
+	);
 
 	const [imgURL, setImgURL] = useState("");
 	const [genre, setGenre] = useState(["british"]);
@@ -29,18 +34,24 @@ export default function CreateForm() {
 		e.preventDefault();
 
 		const newSerie = {
-			name: name,
-			description: "",
+			name: "Downton Abbey",
+			cateory: category,
+			season: season,
+			episodeNumber: episodeNumber,
+			description:
+				"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011.",
 			imgURL: "",
-			genre: [],
+			genre: ["british"],
 		};
-		const path = "/categories/series/content/";
+
+		const path = "/categories/" + category + "/" + name + "/season" + season + "/episodes/";
+		const id = "episode" + episodeNumber;
 		const fileName = `${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);
 		newSerie.imgURL = imgURL;
 
-		const payload = await createDocument("/categories/series/content", newSerie);
+		const payload = await createDocumentWithId(path, id, newSerie);
 
 		const { message, error, loading } = payload;
 
@@ -51,6 +62,7 @@ export default function CreateForm() {
 		alert(message);
 		resetForm();
 		setModal(null);
+		console.log(error);
 	}
 
 	function onImageChoose(event) {
@@ -60,8 +72,8 @@ export default function CreateForm() {
 
 	function resetForm() {
 		setName("");
-
 		setGenre("");
+		setCategory("");
 	}
 	return (
 		<form onSubmit={onCreate} className="add-form">
@@ -69,6 +81,9 @@ export default function CreateForm() {
 			{error && <Error />}
 
 			<InputField setup={form.name} state={[name, setName]} />
+			<InputField setup={form.category} state={[category, setCategory]} />
+			<InputField setup={form.season} state={[season, setSeason]} />
+			<InputField setup={form.episodeNumber} state={[episodeNumber, setEpisodeNumber]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 
