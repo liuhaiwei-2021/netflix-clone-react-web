@@ -44,6 +44,7 @@ export default function LogIn() {
 		setLoggedIn(true);
 		setEmail("");
 		setPassword("");
+		navigation("/browse");
 	}
 
 	function onFail(errMessage) {

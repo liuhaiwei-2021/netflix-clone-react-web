@@ -1,0 +1,11 @@
+.admin {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 24px 24px;
+	border-color: beige;
+}
+.admin button {
+	display: inline-block;
+	width: 100px;
+	height: 50px;
+}

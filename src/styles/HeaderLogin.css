@@ -1,0 +1,39 @@
+.header-login {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	background: transparent;
+	height: 68px;
+	transition: background-color 0.4s;
+	padding: 0 60px;
+}
+.header-login .a {
+	width: 100px;
+	display: inline;
+	flex-grow: 0;
+}
+
+.header-login .logo {
+	width: 93px;
+	font-size: 25px;
+	margin-right: 25px;
+	cursor: pointer;
+}
+
+.primary-navigation {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 355px;
+	flex-grow: 0;
+}
+
+.secondary-navigation {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	flex-grow: 1;
+}
