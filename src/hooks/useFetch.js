@@ -14,6 +14,7 @@ function useFetch(collection) {
 				setLoading(false);
 			} catch (error) {
 				setError(error);
+				console.log(error);
 				setLoading(false);
 			}
 		}

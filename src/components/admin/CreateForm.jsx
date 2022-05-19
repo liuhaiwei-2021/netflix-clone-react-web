@@ -15,36 +15,36 @@ import "../../styles/CreateForm.css";
 export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
-	const [name, setName] = useState("Downton Abbey");
+	const [name, setName] = useState("House of cards");
 	const [category, setCategory] = useState("series");
-	const [season, setSeason] = useState(3);
+	const [season, setSeason] = useState(1);
 	const [episodeNumber, setEpisodeNumber] = useState(1);
-	const [youtubeID, setYoutubeID] = useState("8eZ_w0kMa9A");
+	const [youtubeID, setYoutubeID] = useState("");
+	const [genre, setGenre] = useState(["Drama"]);
 	const [description, setDescription] = useState(
-		"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011."
+		"House of Cards is a 2013 American political drama series created by Beau Willimon. House of Cards is based on Michael Dobb's novel of the same name, and on the mini-TV series House of Cards in four episodes, based on the book, which was broadcast by the BBC in 1990."
 	);
 
 	const [imgURL, setImgURL] = useState("");
-	const [genre, setGenre] = useState(["british"]);
-
 	const [file, setFile] = useState(null);
+
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
+
 	//methods
 	async function onCreate(e) {
 		e.preventDefault();
 
 		const newSerie = {
-			name: "Downton Abbey",
+			name: name,
 			cateory: category,
 			season: season,
 			episodeNumber: episodeNumber,
 			youtubeID: youtubeID,
-			description:
-				"Downton Abbey is a British historical drama television series set in the early 20th century, created and co-written by Julian Fellowes. The series first aired on ITV in the United Kingdom on 26 September 2010, and in the United States on PBS, which supported production of the series as part of its Masterpiece Classic anthology, on 9 January 2011.",
+			description: description,
 			imgURL: "",
-			genre: ["british"],
+			genre: genre,
 		};
 
 		const path = "/categories/" + category + "/" + name + "/season" + season + "/episodes/";
