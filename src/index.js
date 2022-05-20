@@ -7,6 +7,7 @@ import { ModalProvider } from "./state/ModalContext";
 import { AuthProvider } from "./state/AuthContext";
 import { UserProvider } from "./state/UserContext";
 import { SeriesProvider } from "./state/SeriesContext";
+import { MoviesProvider } from "./state/MoviesContext";
 import "./styles/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -15,11 +16,13 @@ root.render(
 		<AuthProvider>
 			<UserProvider>
 				<SeriesProvider>
-					<ModalProvider>
-						<Routes>
-							<Route path="/*" element={<App />} />
-						</Routes>
-					</ModalProvider>
+					<MoviesProvider>
+						<ModalProvider>
+							<Routes>
+								<Route path="/*" element={<App />} />
+							</Routes>
+						</ModalProvider>
+					</MoviesProvider>
 				</SeriesProvider>
 			</UserProvider>
 		</AuthProvider>

@@ -15,13 +15,10 @@ import "../../styles/CreateForm.css";
 export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
-	const [name, setName] = useState("Our Planet ");
-	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState(1);
-	const [genre, setGenre] = useState(["Nature documentaries"]);
-	const [description, setDescription] = useState(
-		"Experience our planet's natural beauty and examine how climate change impacts all living creatures in this ambitious documentary of spectacular scope."
-	);
+	const [name, setName] = useState("");
+	const [category, setCategory] = useState("movies");
+	const [genre, setGenre] = useState([""]);
+	const [description, setDescription] = useState("H");
 
 	const [imgURL, setImgURL] = useState("");
 	const [file, setFile] = useState(null);
@@ -37,13 +34,12 @@ export default function CreateForm() {
 		const newSerie = {
 			name: name,
 			cateory: category,
-			season: season,
 			description: description,
 			imgURL: "",
 			genre: genre,
 		};
 
-		const path = "/categories/" + category + "/content";
+		const path = "/categories/movies/content";
 		const fileName = `${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);
@@ -80,7 +76,6 @@ export default function CreateForm() {
 
 			<InputField setup={form.name} state={[name, setName]} />
 			<InputField setup={form.category} state={[category, setCategory]} />
-			<InputField setup={form.season} state={[season, setSeason]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 
