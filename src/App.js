@@ -27,12 +27,12 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					{/* public routes */}
-					{/* <Route path="/" element={<Landing />} /> */}
+					<Route path="/" element={<Landing />} />
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/recover" element={<RecoverPassword />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/unauthorized" element={<Unauthorized />} />
-					<Route path="/" element={<Admin />} />
+					<Route path="/admin" element={<Admin />} />
 
 					{/* I want to protect these routes */}
 					<Route element={<RequireAuth allowedRoles={[ROLES.Customer, ROLES.Editor]} />}>

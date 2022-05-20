@@ -3,6 +3,7 @@ import Player from "./Player";
 
 import { useModal } from "../state/ModalContext";
 import CreateForm from "../components/admin/CreateForm";
+import CreateSeriesForm from "../components/admin/CreateSeriesForm";
 export default function Admin() {
 	const { setModal } = useModal();
 
@@ -11,6 +12,9 @@ export default function Admin() {
 		<div className="admin">
 			<button className="btn-add" onClick={() => setModal(<CreateForm />)}>
 				+Add a new episode
+			</button>
+			<button className="btn-add" onClick={() => setModal(<CreateSeriesForm />)}>
+				+Add a new series
 			</button>
 			<button>documents</button>
 			<button>movies</button>

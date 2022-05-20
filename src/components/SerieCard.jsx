@@ -1,11 +1,10 @@
-import React from "react";
+import "../styles/SerieCard.css";
 
 export default function SerieCard({ serie }) {
-	const { name, seasons } = serie;
+	const { name, season, genre, imgURL } = serie;
 	return (
-		<div>
-			<h>{name}</h>
-			<span>{seasons}</span>
+		<div className="serie-card">
+			<img src={imgURL} alt="" />
 		</div>
 	);
 }
