@@ -22,7 +22,9 @@ export default function CreateForm() {
 	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
+	const [imgBagroundURL, setImgBagroundURL] = useState(""); //background image
 	const [file, setFile] = useState(null);
+	const [backgroundFile, setBackgroundFile] = useState(null);
 
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
@@ -38,6 +40,7 @@ export default function CreateForm() {
 			season: season,
 			description: description,
 			imgURL: "",
+			imgBagroundURL: "",
 			genre: genre,
 		};
 
@@ -47,8 +50,12 @@ export default function CreateForm() {
 		const imgURL = await createFile(filePath, file);
 		newSerie.imgURL = imgURL;
 
-		const payload = await createDocument(path, newSerie);
+		const backgroundFileName = `background-${name}.png`;
+		const backgroundFilePath = path + backgroundFileName;
+		const imgBagroundUPL = await createFile(backgroundFilePath, backgroundFile);
+		newSerie.imgBagroundURL = imgBagroundURL;
 
+		const payload = await createDocument(path, newSerie);
 		const { message, error, loading } = payload;
 
 		setMessage(message);
@@ -64,6 +71,11 @@ export default function CreateForm() {
 	function onImageChoose(event) {
 		const file = event.target.files[0];
 		setFile(file);
+	}
+
+	function onImageBackgroundChoose(e) {
+		const backgroundFile = e.target.files[0];
+		setBackgroundFile(backgroundFile);
 	}
 
 	function resetForm() {
@@ -89,6 +101,20 @@ export default function CreateForm() {
 					onChange={onImageChoose}
 					id="file-upload"
 					className="file-upload"
+					type="file"
+					accept="image/png, image/jpg"
+					required
+				/>
+			</div>
+			<div className="upload-img">
+				<label className="custom-file-upload" htmlFor="background-file-upload">
+					Background image:
+				</label>
+
+				<input
+					onChange={onImageBackgroundChoose}
+					id="background-file-upload"
+					className="background-file-upload"
 					type="file"
 					accept="image/png, image/jpg"
 					required

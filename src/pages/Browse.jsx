@@ -6,6 +6,7 @@ import { readDocument } from "../scripts/fireStore";
 import "../styles/Browse.css";
 import SerieCards from "../components/SerieCards";
 import MovieCards from "../components/Moviecards";
+import DocumentaryCards from "../components/DocumentaryCards";
 
 export default function Browse() {
 	//Global state
@@ -17,6 +18,7 @@ export default function Browse() {
 				<div>
 					<section className="animations-container"></section>
 					<SerieCards />
+					<DocumentaryCards />
 					<MovieCards />
 
 					<section className="trending-now">trending now</section>

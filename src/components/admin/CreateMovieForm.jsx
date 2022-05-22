@@ -21,9 +21,10 @@ export default function CreateForm() {
 	const [description, setDescription] = useState("H");
 
 	const [imgURL, setImgURL] = useState(""); //thumbnail
-	const [imgBagroundUPL, setImgBagroundUPL] = useState(""); //background image
+	const [imgBagroundURL, setImgBagroundURL] = useState(""); //background image
 	const [file, setFile] = useState(null);
 	const [backgroundFile, setBackgroundFile] = useState(null);
+	const [youtubeID, setYoutubeID] = useState("");
 
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
@@ -38,8 +39,9 @@ export default function CreateForm() {
 			cateory: category,
 			description: description,
 			imgURL: "",
-			imgBagroundUPL: "",
+			imgBagroundURL: "",
 			genre: genre,
+			youtubeID: youtubeID,
 		};
 
 		const path = "/categories/movies/content/";
@@ -51,7 +53,7 @@ export default function CreateForm() {
 		const backgroundFileName = `background-${name}.png`;
 		const backgroundFilePath = path + backgroundFileName;
 		const imgBagroundUPL = await createFile(backgroundFilePath, backgroundFile);
-		newSerie.imgBagroundUPL = imgBagroundUPL;
+		newSerie.imgBagroundURL = imgBagroundURL;
 
 		const payload = await createDocument(path, newSerie);
 		const { message, error, loading } = payload;
@@ -66,13 +68,13 @@ export default function CreateForm() {
 		console.log(error);
 	}
 
-	function onImageChoose(event) {
-		const file = event.target.files[0];
+	function onImageChoose(e) {
+		const file = e.target.files[0];
 		setFile(file);
 	}
 
-	function onImageBackgroundChoose(event) {
-		const backgroundFile = event.target.files[0];
+	function onImageBackgroundChoose(e) {
+		const backgroundFile = e.target.files[0];
 		setBackgroundFile(backgroundFile);
 	}
 
@@ -90,6 +92,7 @@ export default function CreateForm() {
 			<InputField setup={form.category} state={[category, setCategory]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
 			<InputField setup={form.genre} state={[genre, setGenre]} />
+			<InputField setup={form.youtubeID} state={[youtubeID, setYoutubeID]} />
 
 			<div className="upload-img">
 				<label className="custom-file-upload" htmlFor="file-upload">
