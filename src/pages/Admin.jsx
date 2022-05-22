@@ -15,14 +15,13 @@ export default function Admin() {
 				+Add a new episode
 			</button>
 			<button className="btn-add" onClick={() => setModal(<CreateSeriesForm />)}>
-				+Add a new series
+				+Add a new series/documnetaies
 			</button>
 
 			<button className="btn-add" onClick={() => setModal(<CreateMovieForm />)}>
 				+Add a new movie
 			</button>
-			<button>documents</button>
-			<button>movies</button>
+
 			{/* <Player linkID={linkID} /> */}
 		</div>
 	);

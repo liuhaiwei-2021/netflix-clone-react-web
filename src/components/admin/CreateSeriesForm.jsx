@@ -15,13 +15,11 @@ import "../../styles/CreateForm.css";
 export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
-	const [name, setName] = useState("Our Planet ");
+	const [name, setName] = useState("");
 	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState(1);
-	const [genre, setGenre] = useState(["Nature documentaries"]);
-	const [description, setDescription] = useState(
-		"Experience our planet's natural beauty and examine how climate change impacts all living creatures in this ambitious documentary of spectacular scope."
-	);
+	const [season, setSeason] = useState();
+	const [genre, setGenre] = useState([""]);
+	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
 	const [file, setFile] = useState(null);

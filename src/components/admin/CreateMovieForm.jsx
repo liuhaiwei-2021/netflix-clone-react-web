@@ -20,8 +20,10 @@ export default function CreateForm() {
 	const [genre, setGenre] = useState([""]);
 	const [description, setDescription] = useState("H");
 
-	const [imgURL, setImgURL] = useState("");
+	const [imgURL, setImgURL] = useState(""); //thumbnail
+	const [imgBagroundUPL, setImgBagroundUPL] = useState(""); //background image
 	const [file, setFile] = useState(null);
+	const [backgroundFile, setBackgroundFile] = useState(null);
 
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
@@ -36,17 +38,22 @@ export default function CreateForm() {
 			cateory: category,
 			description: description,
 			imgURL: "",
+			imgBagroundUPL: "",
 			genre: genre,
 		};
 
-		const path = "/categories/movies/content";
+		const path = "/categories/movies/content/";
 		const fileName = `${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);
 		newSerie.imgURL = imgURL;
 
-		const payload = await createDocument(path, newSerie);
+		const backgroundFileName = `background-${name}.png`;
+		const backgroundFilePath = path + backgroundFileName;
+		const imgBagroundUPL = await createFile(backgroundFilePath, backgroundFile);
+		newSerie.imgBagroundUPL = imgBagroundUPL;
 
+		const payload = await createDocument(path, newSerie);
 		const { message, error, loading } = payload;
 
 		setMessage(message);
@@ -62,6 +69,11 @@ export default function CreateForm() {
 	function onImageChoose(event) {
 		const file = event.target.files[0];
 		setFile(file);
+	}
+
+	function onImageBackgroundChoose(event) {
+		const backgroundFile = event.target.files[0];
+		setBackgroundFile(backgroundFile);
 	}
 
 	function resetForm() {
@@ -80,12 +92,27 @@ export default function CreateForm() {
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 
 			<div className="upload-img">
-				<label className="custom-file-upload" htmlFor="file-upload"></label>
-
+				<label className="custom-file-upload" htmlFor="file-upload">
+					Thumbnail:
+				</label>
 				<input
 					onChange={onImageChoose}
 					id="file-upload"
 					className="file-upload"
+					type="file"
+					accept="image/png, image/jpg"
+					required
+				/>
+			</div>
+			<div className="upload-img">
+				<label className="custom-file-upload" htmlFor="background-file-upload">
+					Background image:
+				</label>
+
+				<input
+					onChange={onImageBackgroundChoose}
+					id="background-file-upload"
+					className="background-file-upload"
 					type="file"
 					accept="image/png, image/jpg"
 					required
