@@ -1,5 +1,6 @@
 .previewModal-wrapper {
 	height: 100vh;
+	overflow: scroll;
 }
 
 .detail-info-container {
