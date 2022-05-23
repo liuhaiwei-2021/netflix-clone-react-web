@@ -1,6 +1,6 @@
 .previewModal-wrapper {
 	height: 100vh;
-	overflow: scroll;
+	overflow-y: scroll;
 }
 
 .detail-info-container {
@@ -8,11 +8,14 @@
 	display: flex;
 	flex-direction: column;
 }
-
+.serie-bg-img {
+	width: 100%;
+	margin-bottom: 48px;
+}
 .detail-info {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 0px 16px;
+	grid-template-columns: 2fr 1fr;
+	gap: 0px 24px;
 	margin-bottom: 48px;
 }
 

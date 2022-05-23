@@ -28,6 +28,10 @@ a {
 	text-decoration: none;
 	color: #fff;
 }
+p {
+	line-height: 1.5rem;
+	font-size: smaller;
+}
 
 .loader {
 	position: absolute;

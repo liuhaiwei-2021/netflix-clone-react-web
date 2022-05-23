@@ -15,7 +15,6 @@ export default function YoutubePlayer({ name }) {
 		}
 		loadData();
 	}, [name]);
-	console.log(defalultEpisode.youtubeID);
 
 	return (
 		<div className="preview-player">

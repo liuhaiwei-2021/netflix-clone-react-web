@@ -4,14 +4,14 @@ import { useModal } from "../state/ModalContext";
 import EpisodeCard from "./EpisodeCard";
 import "../styles/SerieInfo.css";
 import YoutubePlayer from "./YoutubePlayer";
+import SeasonGroupHeader from "./SeasonGroupHeader";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();
-	const { name, season, genre, imgURL, id, description } = serie;
+	const { name, season, genre, imgURL, imgBackgroundURL, description } = serie;
 	const { data, loading, error } = useFetch("/categories/series/content/" + name + "/season1/");
 
 	const [seasonInfo, setSeasonInfo] = useState([]);
-	const [defaultYoutubeID, setDefaultYoutubeID] = useState({});
 
 	//methods
 	useEffect(() => {
@@ -26,16 +26,24 @@ export default function SerieInfo({ serie }) {
 
 	return (
 		<div className="previewModal-wrapper">
-			<YoutubePlayer name={name} />
+			<div className="serie-bg-img">
+				<img src={imgBackgroundURL} alt="" />
+			</div>
+
 			<div className="detail-info-container">
 				<div className="detail-info">
-					<div className="description">{description}</div>
-					<div>
+					<div className="description">
+						<p>{description}</p>
+					</div>
+					<div className="genre">
 						<span>Genre: </span>
 						{genre}
 					</div>
 				</div>
-				<div className="episode-card-group">{SeasonInfo}</div>
+				<div className="episode-card-group">
+					<SeasonGroupHeader />
+					<p>{SeasonInfo}</p>
+				</div>
 			</div>
 
 			<button onClick={() => setModal(null)}>cancel</button>
