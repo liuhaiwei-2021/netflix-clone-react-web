@@ -22,6 +22,7 @@ export default function DocumentaryCards() {
 	));
 	return (
 		<section className="series">
+			<h1>Documentaries</h1>
 			<div className="serie-cards">{Documentaries}</div>
 		</section>
 	);

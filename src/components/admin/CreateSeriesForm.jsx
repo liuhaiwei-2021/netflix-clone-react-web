@@ -16,13 +16,13 @@ export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
 	const [name, setName] = useState("");
-	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState();
-	const [genre, setGenre] = useState([""]);
+	const [category, setCategory] = useState("series");
+	const [season, setSeason] = useState(2);
+	const [genre, setGenre] = useState(["drama"]);
 	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
-	const [imgBagroundURL, setImgBagroundURL] = useState(""); //background image
+	const [imgBackgroundURL, setImgBackgroundURL] = useState(""); //background image
 	const [file, setFile] = useState(null);
 	const [backgroundFile, setBackgroundFile] = useState(null);
 
@@ -40,7 +40,7 @@ export default function CreateForm() {
 			season: season,
 			description: description,
 			imgURL: "",
-			imgBagroundURL: "",
+			imgBackgroundURL: "",
 			genre: genre,
 		};
 
@@ -52,8 +52,8 @@ export default function CreateForm() {
 
 		const backgroundFileName = `background-${name}.png`;
 		const backgroundFilePath = path + backgroundFileName;
-		const imgBagroundUPL = await createFile(backgroundFilePath, backgroundFile);
-		newSerie.imgBagroundURL = imgBagroundURL;
+		const imgBackgroundURL = await createFile(backgroundFilePath, backgroundFile);
+		newSerie.imgBackgroundURL = imgBackgroundURL;
 
 		const payload = await createDocument(path, newSerie);
 		const { message, error, loading } = payload;
@@ -95,7 +95,9 @@ export default function CreateForm() {
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 
 			<div className="upload-img">
-				<label className="custom-file-upload" htmlFor="file-upload"></label>
+				<label className="custom-file-upload" htmlFor="file-upload">
+					Thumbnail image:
+				</label>
 
 				<input
 					onChange={onImageChoose}
