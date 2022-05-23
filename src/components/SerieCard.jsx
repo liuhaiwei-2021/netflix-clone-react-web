@@ -1,12 +1,15 @@
 import "../styles/SerieCard.css";
+import { useModal } from "../state/ModalContext";
+import SerieInfo from "./SerieInfo";
 
 export default function SerieCard({ serie }) {
 	const { name, season, genre, imgURL, id } = serie;
+	const { setModal } = useModal();
 	return (
-		<div className="serie-card">
-			{id}
-			<span>{name}</span>
-			<img src={imgURL} alt="" />
+		<div onClick={() => setModal(<SerieInfo serie={serie} />)}>
+			<div className="serie-card">
+				<img src={imgURL} alt="" />
+			</div>
 		</div>
 	);
 }

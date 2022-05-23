@@ -6,7 +6,6 @@ import form from "../../data/serieForm.json";
 import { createFile } from "../../scripts/cloudStorage";
 import { createDocumentWithId } from "../../scripts/fireStore";
 import Loader from "../../scripts/Loader";
-import { useSeries } from "../../state/SeriesContext";
 import { useModal } from "../../state/ModalContext";
 import Error from "../shared/Error";
 import InputField from "../shared/InputField";
@@ -14,16 +13,14 @@ import "../../styles/CreateForm.css";
 
 export default function CreateForm() {
 	const { setModal } = useModal();
-	const { series, setSeries } = useSeries();
-	const [name, setName] = useState("House of cards");
+
+	const [name, setName] = useState("The good doctor");
 	const [category, setCategory] = useState("series");
 	const [season, setSeason] = useState(1);
-	const [episodeNumber, setEpisodeNumber] = useState(1);
+	const [episodeNumber, setEpisodeNumber] = useState();
 	const [youtubeID, setYoutubeID] = useState("");
 	const [genre, setGenre] = useState(["Drama"]);
-	const [description, setDescription] = useState(
-		"House of Cards is a 2013 American political drama series created by Beau Willimon. House of Cards is based on Michael Dobb's novel of the same name, and on the mini-TV series House of Cards in four episodes, based on the book, which was broadcast by the BBC in 1990."
-	);
+	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
 	const [file, setFile] = useState(null);
@@ -36,7 +33,7 @@ export default function CreateForm() {
 	async function onCreate(e) {
 		e.preventDefault();
 
-		const newSerie = {
+		const newEpispde = {
 			name: name,
 			cateory: category,
 			season: season,
@@ -44,24 +41,23 @@ export default function CreateForm() {
 			youtubeID: youtubeID,
 			description: description,
 			imgURL: "",
-			genre: genre,
 		};
 
-		const path = "/categories/" + category + "/" + name + "/season" + season + "/episodes/";
+		const path = "/categories/" + category + "/content/" + name + "/season" + season + "/";
 		const id = "episode" + episodeNumber;
 		const fileName = `${id}-${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);
-		newSerie.imgURL = imgURL;
+		newEpispde.imgURL = imgURL;
 
-		const payload = await createDocumentWithId(path, id, newSerie);
+		const payload = await createDocumentWithId(path, id, newEpispde);
 
 		const { message, error, loading } = payload;
 
 		setMessage(message);
 		setError(error);
 		setLoading(loading);
-		setSeries([...series, newSerie]);
+
 		alert(message);
 		resetForm();
 		setModal(null);
@@ -89,7 +85,6 @@ export default function CreateForm() {
 			<InputField setup={form.episodeNumber} state={[episodeNumber, setEpisodeNumber]} />
 			<InputField setup={form.youtubeID} state={[youtubeID, setYoutubeID]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
-			<InputField setup={form.genre} state={[genre, setGenre]} />
 
 			<div className="upload-img">
 				<label className="custom-file-upload" htmlFor="file-upload"></label>

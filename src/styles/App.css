@@ -15,7 +15,11 @@
 	margin: 0 auto;
 	/* margin-top: 70px; */
 }
-
+button {
+	margin: none;
+	padding: none;
+	border: none;
+}
 li {
 	list-style-type: none;
 }

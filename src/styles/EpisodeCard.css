@@ -1,0 +1,11 @@
+.episode-card {
+	display: grid;
+	grid-template-columns: 1fr 3fr 8fr;
+	gap: 0px 4px;
+	padding: 16px;
+}
+
+.episode-card img {
+	width: 150px;
+	height: 85px;
+}

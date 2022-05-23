@@ -32,6 +32,7 @@ export async function createDocumentWithId(path, id, data) {
 		payload = { message: `Document with id ${id} created!`, error: null, loading: false };
 	} catch (error) {
 		payload = { message: "created failed", error: error.message, loading: false };
+		console.log(error);
 	}
 
 	return payload;

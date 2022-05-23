@@ -18,10 +18,10 @@ export default function CreateForm() {
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("movies");
 	const [genre, setGenre] = useState([""]);
-	const [description, setDescription] = useState("H");
+	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState(""); //thumbnail
-	const [imgBagroundURL, setImgBagroundURL] = useState(""); //background image
+	const [imgBackgroundURL, setImgBackgroundURL] = useState(""); //background image
 	const [file, setFile] = useState(null);
 	const [backgroundFile, setBackgroundFile] = useState(null);
 	const [youtubeID, setYoutubeID] = useState("");
@@ -39,7 +39,7 @@ export default function CreateForm() {
 			cateory: category,
 			description: description,
 			imgURL: "",
-			imgBagroundURL: "",
+			imgBackgroundURL: "",
 			genre: genre,
 			youtubeID: youtubeID,
 		};
@@ -52,8 +52,8 @@ export default function CreateForm() {
 
 		const backgroundFileName = `background-${name}.png`;
 		const backgroundFilePath = path + backgroundFileName;
-		const imgBagroundUPL = await createFile(backgroundFilePath, backgroundFile);
-		newSerie.imgBagroundURL = imgBagroundURL;
+		const imgBackgroundURL = await createFile(backgroundFilePath, backgroundFile);
+		newSerie.imgBackgroundURL = imgBackgroundURL;
 
 		const payload = await createDocument(path, newSerie);
 		const { message, error, loading } = payload;

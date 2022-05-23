@@ -1,0 +1,21 @@
+.previewModal-wrapper {
+	height: 100vh;
+}
+
+.detail-info-container {
+	padding: 0 48px;
+	display: flex;
+	flex-direction: column;
+}
+
+.detail-info {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0px 16px;
+	margin-bottom: 48px;
+}
+
+.episode-card-group {
+	display: flex;
+	flex-direction: column;
+}
