@@ -15,6 +15,7 @@ export default function SerieCard({ serie }) {
 		};
 		const path = "/categories/" + category + "/content/";
 		const { message, error, loading } = await updateDocument(path, viewSerie);
+		console.log("movies", name, path);
 	}
 	return (
 		<div onClick={view}>
