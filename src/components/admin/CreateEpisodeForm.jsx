@@ -11,10 +11,10 @@ import Error from "../shared/Error";
 import InputField from "../shared/InputField";
 import "../../styles/CreateForm.css";
 
-export default function CreateForm() {
+export default function CreateEpisodeForm() {
 	const { setModal } = useModal();
 
-	const [name, setName] = useState("Night on Earth");
+	const [name, setName] = useState("Tiny Creatures");
 	const [episodeName, setEpisodeName] = useState("");
 	const [category, setCategory] = useState("documentaries");
 	const [season, setSeason] = useState(1);

@@ -42,6 +42,7 @@ export default function CreateForm() {
 			imgURL: "",
 			imgBackgroundURL: "",
 			genre: genre,
+			totalView: 0,
 		};
 
 		const path = "/categories/" + category + "/content/";

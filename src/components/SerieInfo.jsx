@@ -8,12 +8,11 @@ import SeasonGroupHeader from "./SeasonGroupHeader";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();
-	const { name, season, genre, imgURL, imgBackgroundURL, description, category } = serie;
-	console.log("test", category);
+	const { name, season, genre, imgBackgroundURL, description, category, totalView } = serie;
+
 	const { data, loading, error } = useFetch(
 		"/categories/" + category + "/content/" + name + "/season1/"
 	);
-	console.log("/categories/" + category + "/content/" + name + "/season1/");
 
 	const [seasonInfo, setSeasonInfo] = useState([]);
 
@@ -29,7 +28,7 @@ export default function SerieInfo({ serie }) {
 	));
 
 	return (
-		<div className="previewModal-wrapper">
+		<div className="previewModal-wrapper bg-dark" onClick={() => setModal(null)}>
 			<div className="serie-bg-img">
 				<img src={imgBackgroundURL} alt="" />
 			</div>
@@ -49,8 +48,6 @@ export default function SerieInfo({ serie }) {
 					<p>{SeasonInfo}</p>
 				</div>
 			</div>
-
-			<button onClick={() => setModal(null)}>cancel</button>
 		</div>
 	);
 }

@@ -3,6 +3,7 @@ import SerieCard from "../components/SerieCard";
 
 import useFetch from "../hooks/useFetch";
 import { useSeries } from "../state/SeriesContext";
+import "../styles/SerieCards.css";
 
 export default function SerieCards() {
 	const { data, loading, error } = useFetch("/categories/series/content/");

@@ -8,7 +8,7 @@ export default function YoutubePlayer({ name }) {
 	useEffect(() => {
 		async function loadData() {
 			const { data, loading, error } = await readDocument(
-				"/categories/series/content/" + name + "/season1/",
+				"/categories/movies/content/" + name + "/season1/",
 				"episode1"
 			);
 			setDefalultEpisode(data);

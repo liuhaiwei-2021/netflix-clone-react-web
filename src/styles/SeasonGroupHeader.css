@@ -1,3 +1,10 @@
+.season-head-dropdown {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
 .dropbtn {
 	background-color: #4caf50;
 	color: white;

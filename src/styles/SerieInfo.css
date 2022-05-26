@@ -1,12 +1,16 @@
 .previewModal-wrapper {
 	height: 100vh;
-	overflow-y: scroll;
+	/* overflow-y: scroll; */
+	overflow-y: auto;
+	z-index: 1;
+	color: #fff;
 }
 
 .detail-info-container {
 	padding: 0 48px;
 	display: flex;
 	flex-direction: column;
+	z-index: 2;
 }
 .serie-bg-img {
 	width: 100%;

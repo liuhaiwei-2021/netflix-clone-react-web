@@ -8,7 +8,7 @@ export default function EpisodeCard({ episode }) {
 
 	return (
 		<div className="episode-card">
-			<div>{episodeNumber}</div>
+			<div className="episode-number">{episodeNumber}</div>
 			<div className="episode-react-player-wrapper" onClick={onYoutube}>
 				<ReactPlayer
 					url={`https://www.youtube.com/watch?v=${youtubeID}`}
@@ -19,6 +19,7 @@ export default function EpisodeCard({ episode }) {
 			<div className="episode-description">
 				<p>{description}</p>
 			</div>
+			<hr className="hr" />
 		</div>
 	);
 }

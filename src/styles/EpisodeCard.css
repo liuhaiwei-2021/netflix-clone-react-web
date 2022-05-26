@@ -3,6 +3,10 @@
 	grid-template-columns: 1fr 3fr 8fr;
 	gap: 0px 4px;
 	padding: 16px;
+	margin: 0 auto;
+	height: 85px;
+	line-height: 85px;
+	overflow: hidden;
 }
 
 .episode-card img {
@@ -16,4 +20,13 @@
 }
 .episode-description {
 	margin-left: 24px;
+}
+
+.episode-number {
+	font-size: 1.5em;
+	margin: 0 auto;
+}
+.hr {
+	color: red;
+	z-index: 100;
 }

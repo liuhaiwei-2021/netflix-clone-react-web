@@ -4,7 +4,7 @@ import { useState } from "react";
 // Project files
 import form from "../../data/serieForm.json";
 import { createFile } from "../../scripts/cloudStorage";
-import { createDocument } from "../../scripts/fireStore";
+import { createDocumentWithId } from "../../scripts/fireStore";
 import Loader from "../../scripts/Loader";
 import { useSeries } from "../../state/SeriesContext";
 import { useModal } from "../../state/ModalContext";
@@ -36,12 +36,13 @@ export default function CreateForm() {
 
 		const newSerie = {
 			name: name,
-			cateory: category,
+			category: category,
 			description: description,
 			imgURL: "",
 			imgBackgroundURL: "",
 			genre: genre,
 			youtubeID: youtubeID,
+			totalView: 0,
 		};
 
 		const path = "/categories/movies/content/";
@@ -55,7 +56,7 @@ export default function CreateForm() {
 		const imgBackgroundURL = await createFile(backgroundFilePath, backgroundFile);
 		newSerie.imgBackgroundURL = imgBackgroundURL;
 
-		const payload = await createDocument(path, newSerie);
+		const payload = await createDocumentWithId(path, name, newSerie);
 		const { message, error, loading } = payload;
 
 		setMessage(message);

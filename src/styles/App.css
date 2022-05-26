@@ -53,3 +53,6 @@ p {
 	border-bottom-color: #fff;
 	animation: spinner 1s ease infinite;
 }
+.bg-dark {
+	background-color: #000;
+}
