@@ -14,12 +14,12 @@ import "../../styles/CreateForm.css";
 export default function CreateForm() {
 	const { setModal } = useModal();
 
-	const [name, setName] = useState("The good doctor");
-	const [category, setCategory] = useState("series");
+	const [name, setName] = useState("Night on Earth");
+	const [episodeName, setEpisodeName] = useState("");
+	const [category, setCategory] = useState("documentaries");
 	const [season, setSeason] = useState(1);
 	const [episodeNumber, setEpisodeNumber] = useState();
 	const [youtubeID, setYoutubeID] = useState("");
-	const [genre, setGenre] = useState(["Drama"]);
 	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
@@ -33,9 +33,12 @@ export default function CreateForm() {
 	async function onCreate(e) {
 		e.preventDefault();
 
-		const newEpispde = {
+		let newEpispde;
+
+		newEpispde = {
 			name: name,
-			cateory: category,
+			episodeName: episodeName,
+			category: category,
 			season: season,
 			episodeNumber: episodeNumber,
 			youtubeID: youtubeID,
@@ -71,7 +74,6 @@ export default function CreateForm() {
 
 	function resetForm() {
 		setName("");
-		setGenre("");
 		setCategory("");
 	}
 	return (
@@ -80,6 +82,7 @@ export default function CreateForm() {
 			{error && <Error />}
 
 			<InputField setup={form.name} state={[name, setName]} />
+			<InputField setup={form.episodeName} state={[episodeName, setEpisodeName]} />
 			<InputField setup={form.category} state={[category, setCategory]} />
 			<InputField setup={form.season} state={[season, setSeason]} />
 			<InputField setup={form.episodeNumber} state={[episodeNumber, setEpisodeNumber]} />

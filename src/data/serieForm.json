@@ -4,6 +4,11 @@
 		"placeholder": "name...",
 		"required": true
 	},
+	"episodeName": {
+		"label": "Episode Name",
+		"placeholder": "episodeName...",
+		"required": true
+	},
 	"category": {
 		"label": " Category",
 		"placeholder": "series",

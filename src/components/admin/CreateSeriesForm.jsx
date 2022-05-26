@@ -16,9 +16,9 @@ export default function CreateForm() {
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
 	const [name, setName] = useState("");
-	const [category, setCategory] = useState("series");
+	const [category, setCategory] = useState("documentaries");
 	const [season, setSeason] = useState(2);
-	const [genre, setGenre] = useState(["drama"]);
+	const [genre, setGenre] = useState(["Adventure documentaries"]);
 	const [description, setDescription] = useState("");
 
 	const [imgURL, setImgURL] = useState("");
@@ -44,7 +44,7 @@ export default function CreateForm() {
 			genre: genre,
 		};
 
-		const path = "/categories/" + category + "/content";
+		const path = "/categories/" + category + "/content/";
 		const fileName = `${name}.png`;
 		const filePath = path + fileName;
 		const imgURL = await createFile(filePath, file);

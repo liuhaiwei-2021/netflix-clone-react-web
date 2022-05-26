@@ -8,8 +8,12 @@ import SeasonGroupHeader from "./SeasonGroupHeader";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();
-	const { name, season, genre, imgURL, imgBackgroundURL, description } = serie;
-	const { data, loading, error } = useFetch("/categories/series/content/" + name + "/season1/");
+	const { name, season, genre, imgURL, imgBackgroundURL, description, category } = serie;
+	console.log("test", category);
+	const { data, loading, error } = useFetch(
+		"/categories/" + category + "/content/" + name + "/season1/"
+	);
+	console.log("/categories/" + category + "/content/" + name + "/season1/");
 
 	const [seasonInfo, setSeasonInfo] = useState([]);
 
