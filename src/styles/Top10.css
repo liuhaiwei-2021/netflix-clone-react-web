@@ -11,28 +11,3 @@
 	grid-row-gap: 8px;
 	height: 223px;
 }
-.top10-card {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: 1fr;
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	padding: 0 0.2vw;
-}
-
-.top10-number {
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-}
-
-.top10-img {
-	padding: 0 0.2vw;
-	width: 100%;
-	height: 100%;
-	object-fit: cover;
-	border-radius: 0 4px 4px 0;
-}
-.top10-img:hover {
-	transform: scale(1.5);
-}

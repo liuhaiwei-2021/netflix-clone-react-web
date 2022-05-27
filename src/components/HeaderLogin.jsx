@@ -9,9 +9,8 @@ export default function HeaderLogin() {
 			<ul className="primary-navigation">
 				<li>Home</li>
 				<li>Series</li>
-				<li>Films</li>
-				<li>New & Popular</li>
-				<li>My List</li>
+				<li>Flims</li>
+				<li>Documentaries</li>
 			</ul>
 			<div className="secondary-navigation">
 				<div className="nav-element">search</div>
