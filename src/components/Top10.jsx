@@ -30,9 +30,10 @@ export default function Top10() {
 
 	const top10 = titles.slice(0, 10);
 
-	const Top10 = top10.map((serie) => (
-		<div key={serie.id}>
-			<SerieCard serie={serie} />
+	const Top10 = top10.map((serie, index) => (
+		<div key={serie.id} className="top10-card">
+			<img className="top10-number" src={"assets/images/numbers/" + (index + 1) + ".svg"} />
+			<img className="top10-img" src={serie.imgURL} alt="" />
 		</div>
 	));
 
