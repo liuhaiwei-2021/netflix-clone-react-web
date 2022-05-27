@@ -6,8 +6,8 @@ import reverseArrayByView from "../scripts/reverseArrayByView";
 import { useDocumentaries } from "../state/DocumentariesContext";
 import { useMovies } from "../state/MoviesContext";
 import { useSeries } from "../state/SeriesContext";
+import Top10Card from "./Top10Card";
 import "../styles/Top10.css";
-import SerieCard from "./SerieCard";
 
 export default function Top10() {
 	const { series, setSeries } = useSeries();
@@ -30,15 +30,13 @@ export default function Top10() {
 
 	const top10 = titles.slice(0, 10);
 
-	const Top10 = top10.map((serie) => (
-		<div key={serie.id}>
-			<SerieCard serie={serie} />
-		</div>
+	const Top10 = top10.map((serie, index) => (
+		<Top10Card key={index} serie={serie} index={index} />
 	));
 
 	return (
 		<section className="top10">
-			<h1>Top10 in Sweden</h1>
+			<h1>Top10 in Sweden Today</h1>
 			<div className="top10-cards"> {Top10}</div>
 		</section>
 	);

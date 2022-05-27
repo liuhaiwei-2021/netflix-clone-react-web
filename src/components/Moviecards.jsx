@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import MovieCard from "../components/MovieCard";
+import MovieCard from "./MovieCard";
 
 import useFetch from "../hooks/useFetch";
 import { useMovies } from "../state/MoviesContext";

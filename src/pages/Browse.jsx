@@ -1,7 +1,7 @@
 // File packages
 import DocumentaryCards from "../components/DocumentaryCards";
 import HeaderLogin from "../components/HeaderLogin";
-import MovieCards from "../components/Moviecards";
+import MovieCards from "../components/MovieCards";
 import SerieCards from "../components/SerieCards";
 import Top10 from "../components/Top10";
 import "../styles/Browse.css";
