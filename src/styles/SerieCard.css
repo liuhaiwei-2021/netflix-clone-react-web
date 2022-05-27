@@ -1,10 +1,15 @@
+.serie-card {
+	border-radius: 4px;
+	padding: 0 0.2vw;
+}
 .serie-card:hover {
 	transform: scale(1.5);
 }
 
 .serie-card img {
-	padding: 0 0.2vw;
+	/* padding: 0 0.2vw; */
 	width: 100%;
+	border-radius: 4px;
 }
 button {
 	padding: none;

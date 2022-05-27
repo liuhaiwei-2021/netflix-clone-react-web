@@ -7,7 +7,6 @@ import { useDocumentaries } from "../state/DocumentariesContext";
 import { useMovies } from "../state/MoviesContext";
 import { useSeries } from "../state/SeriesContext";
 import "../styles/Top10.css";
-import SerieCard from "./SerieCard";
 
 export default function Top10() {
 	const { series, setSeries } = useSeries();
@@ -31,7 +30,7 @@ export default function Top10() {
 	const top10 = titles.slice(0, 10);
 
 	const Top10 = top10.map((serie, index) => (
-		<div key={serie.id} className="top10-card">
+		<div key={serie.id} className="top10-card bg-dark">
 			<img className="top10-number" src={"assets/images/numbers/" + (index + 1) + ".svg"} />
 			<img className="top10-img" src={serie.imgURL} alt="" />
 		</div>

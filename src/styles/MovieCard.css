@@ -1,10 +1,14 @@
+.movie-card {
+	padding: 0 0.2vw;
+}
+
 .movie-card:hover {
 	transform: scale(1.5);
 }
 
 .movie-card img {
-	padding: 0 0.2vw;
 	width: 100%;
+	border-radius: 4px;
 }
 button {
 	padding: none;
