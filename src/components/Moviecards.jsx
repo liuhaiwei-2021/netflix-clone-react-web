@@ -14,7 +14,7 @@ export default function MovieCards() {
 	}, [data]);
 	console.log(movies);
 
-	const Movies = movies.map((movie) => (
+	const Movies = movies.slice(0, 6).map((movie) => (
 		<div key={movie.id}>
 			<MovieCard movie={movie} />
 		</div>

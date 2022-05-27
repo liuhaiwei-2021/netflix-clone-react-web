@@ -36,7 +36,7 @@ export default function SerieInfo({ serie }) {
 			<div className="detail-info-container">
 				<div className="detail-info">
 					<div className="description">
-						<p>{description}</p>
+						<div>{description}</div>
 					</div>
 					<div className="genre">
 						<span>Genre: </span>
@@ -45,7 +45,7 @@ export default function SerieInfo({ serie }) {
 				</div>
 				<div className="episode-card-group">
 					<SeasonGroupHeader />
-					<p>{SeasonInfo}</p>
+					<div>{SeasonInfo}</div>
 				</div>
 			</div>
 		</div>
