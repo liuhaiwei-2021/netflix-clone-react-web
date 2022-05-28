@@ -17,7 +17,7 @@ export default function CreateForm() {
 	const { series, setSeries } = useSeries();
 	const [name, setName] = useState("");
 	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState(2);
+	const [season, setSeason] = useState([]);
 	const [genre, setGenre] = useState(["Adventure documentaries"]);
 	const [description, setDescription] = useState("");
 

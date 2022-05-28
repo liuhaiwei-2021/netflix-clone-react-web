@@ -14,10 +14,10 @@ import "../../styles/CreateForm.css";
 export default function CreateEpisodeForm() {
 	const { setModal } = useModal();
 
-	const [name, setName] = useState("Tiny Creatures");
+	const [name, setName] = useState("Breaking Bad");
 	const [episodeName, setEpisodeName] = useState("");
-	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState(1);
+	const [category, setCategory] = useState("series");
+	const [season, setSeason] = useState(2);
 	const [episodeNumber, setEpisodeNumber] = useState();
 	const [youtubeID, setYoutubeID] = useState("");
 	const [description, setDescription] = useState("");

@@ -17,6 +17,7 @@ export default function HeaderLogin() {
 
 				<div className="nav-element">
 					<div className="account-menu-item">
+						<img src="assets/images/defaultUser.jpg" alt="" />
 						<div className="account-dropdown-button">account-dropdown-button</div>
 					</div>
 				</div>
