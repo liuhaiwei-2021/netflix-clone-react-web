@@ -32,7 +32,6 @@ export async function createDocumentWithId(path, id, data) {
 		payload = { message: `Document with id ${id} created!`, error: null, loading: false };
 	} catch (error) {
 		payload = { message: "created failed", error: error.message, loading: false };
-		console.log(error);
 	}
 
 	return payload;
@@ -48,7 +47,6 @@ export async function readDocument(path, id) {
 
 		payload.data = document.data();
 		payload.loading = false;
-		console.log("firestore read document", payload.data);
 	} catch (error) {
 		payload.error = error;
 		payload.loading = false;

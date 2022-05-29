@@ -14,12 +14,14 @@ import reverseArrayByView from "../scripts/reverseArrayByView";
 import { useDocumentaries } from "../state/DocumentariesContext";
 import { useMovies } from "../state/MoviesContext";
 import { useSeries } from "../state/SeriesContext";
+// import { useTitles } from "../state/TitlesContext";
 import "../styles/Browse.css";
 
 export default function Browse() {
 	const { series, setSeries } = useSeries();
 	const { documentaries, setDocumentaries } = useDocumentaries();
 	const { movies, setMovies } = useMovies();
+	// const { titles, setTitles } = useTitles();
 
 	const seriesData = useFetch("/categories/series/content");
 	const documentariesData = useFetch("/categories/documentaries/content/");
@@ -36,8 +38,6 @@ export default function Browse() {
 	titles = titles.concat(series, documentaries, movies).sort(reverseArrayByView("totalView"));
 	const top10 = titles.slice(0, 10);
 
-	const randTitle = randArray(titles);
-
 	return (
 		<>
 			<div className="browse">
@@ -49,9 +49,9 @@ export default function Browse() {
 				<div className="main-view">
 					{/* <YoutubePlayer name={randTitle.name} /> */}
 					<div>
-						<SectionsCards data={series} title={"Series"} />
-						<SectionsCards data={documentaries} title={"Documentaries"} />
-						<SectionsCards data={movies} title={"Movies"} />
+						<SectionsCards data={series.slice(0, 6)} title={"Series"} />
+						<SectionsCards data={documentaries.slice(0, 6)} title={"Documentaries"} />
+						<SectionsCards data={movies.slice(0, 6)} title={"Movies"} />
 						<Top10 data={top10} />
 					</div>
 				</div>

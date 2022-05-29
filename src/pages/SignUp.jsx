@@ -49,7 +49,6 @@ export default function SignUp() {
 		};
 		const document = await createDocumentWithId("users", uid, user);
 
-		console.log(document);
 		return document;
 	}
 

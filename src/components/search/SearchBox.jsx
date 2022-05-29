@@ -11,11 +11,16 @@ export default function SearchBox({ titles }) {
 	const [isShow, setIsShow] = useState(false);
 	const navigation = useNavigate();
 
-	const handleSearch = () => {
+	const handleSearch = (e) => {
+		e.preventDefault();
+
 		const result = titles.find(
 			(element) => element.name.toLowerCase() === searchWords.toLowerCase().trim()
 		);
+
 		if (result === undefined) {
+			setSearchResult(null);
+			navigation("/search");
 		} else {
 			navigation("/search");
 			setSearchResult(result);
@@ -31,8 +36,6 @@ export default function SearchBox({ titles }) {
 						<img onClick={handleSearch} src="assets/images/search.svg" alt="" />
 					</button>
 				</form>
-
-				<a href="/#" className="search-btn"></a>
 			</div>
 		</div>
 	);
