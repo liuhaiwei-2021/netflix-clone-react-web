@@ -12,6 +12,7 @@ import LogIn from "./pages/LogIn";
 import Missing from "./pages/Missing";
 import RecoverPassword from "./pages/RecoverPassword";
 import SignUp from "./pages/SignUp";
+import Search from "./pages/Search";
 import "./styles/App.css";
 
 export default function App() {
@@ -36,6 +37,7 @@ export default function App() {
 					{/* I want to protect these routes */}
 					<Route element={<RequireAuth allowedRoles={[ROLES.Customer, ROLES.Editor]} />}>
 						<Route path="/browse" element={<Browse />} />
+						<Route path="/search" element={<Search />} />
 					</Route>
 
 					<Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>

@@ -37,7 +37,7 @@ export default function Browse() {
 		<div className="browse">
 			{(seriesData.loading || documentariesData.loading || moviesData.loading) && <Loader />}
 			{(seriesData.error || documentariesData.error || moviesData.error) && <Error />}
-			<HeaderLogin />
+			<HeaderLogin titles={titles} />
 			<div className="main-view">
 				<div>
 					<SectionsCards data={series} title={"Series"} />

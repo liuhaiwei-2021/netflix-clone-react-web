@@ -1,0 +1,19 @@
+.search-container {
+	height: 44px;
+}
+.search-container .form-input .form-text {
+	height: 30px;
+}
+.search-btn {
+	background-color: transparent;
+	color: #fff;
+}
+.search-label {
+	display: inline;
+}
+.search-icon {
+	display: inline;
+	background-color: transparent;
+	width: 30px;
+	height: auto;
+}
