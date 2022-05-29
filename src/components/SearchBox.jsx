@@ -16,7 +16,7 @@ export default function SearchBox({ titles }) {
 		const result = titles.find(
 			(element) => element.name.toLowerCase() === searchWords.toLowerCase().trim()
 		);
-
+		console.log(result);
 		if (result === undefined) {
 		} else {
 			navigation("/search");
