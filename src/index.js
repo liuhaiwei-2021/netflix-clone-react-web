@@ -10,7 +10,6 @@ import { SeriesProvider } from "./state/SeriesContext";
 import { MoviesProvider } from "./state/MoviesContext";
 import { DocumentariesProvider } from "./state/DocumentariesContext";
 import { SearchProvider } from "./state/SearchContext";
-import { TitlesProvider } from "./state/TitlesContext";
 import "./styles/index.css";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,15 +20,13 @@ root.render(
 				<SeriesProvider>
 					<DocumentariesProvider>
 						<MoviesProvider>
-							<TitlesProvider>
-								<SearchProvider>
-									<ModalProvider>
-										<Routes>
-											<Route path="/*" element={<App />} />
-										</Routes>
-									</ModalProvider>
-								</SearchProvider>
-							</TitlesProvider>
+							<SearchProvider>
+								<ModalProvider>
+									<Routes>
+										<Route path="/*" element={<App />} />
+									</Routes>
+								</ModalProvider>
+							</SearchProvider>
 						</MoviesProvider>
 					</DocumentariesProvider>
 				</SeriesProvider>
