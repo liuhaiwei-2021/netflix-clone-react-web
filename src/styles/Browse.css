@@ -1,6 +1,7 @@
 .browse {
+	display: block;
 	width: 100%;
-	height: 200vh;
+	height: 1250px;
 }
 .main-view {
 	width: 90%;

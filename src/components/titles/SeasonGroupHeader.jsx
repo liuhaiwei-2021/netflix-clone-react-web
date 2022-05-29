@@ -1,4 +1,4 @@
-import "../styles/SeasonGroupHeader.css";
+import "../../styles/SeasonGroupHeader.css";
 import SeasonDropdownItem from "./SeasonDropdownItem";
 
 export default function SeasonGroupHeader({ seasons, hook }) {

@@ -1,7 +1,7 @@
-//projecy files
-import { updateDocument } from "../scripts/fireStore";
-import { useModal } from "../state/ModalContext";
-import "../styles/Top10Card.css";
+//project files
+import { updateDocument } from "../../scripts/fireStore";
+import { useModal } from "../../state/ModalContext";
+import "../../styles/Top10Card.css";
 import SerieInfo from "./SerieInfo";
 
 export default function Top10Card({ serie, index }) {
@@ -9,7 +9,7 @@ export default function Top10Card({ serie, index }) {
 	const { setModal } = useModal();
 
 	//properties
-	const { id, name, imgURL, totalView, category } = serie;
+	const { id, imgURL, totalView, category } = serie;
 
 	//methods
 	function view() {

@@ -1,0 +1,28 @@
+.footer {
+	max-width: 980px;
+	margin: 0 auto;
+	padding: 0 4%;
+	color: grey;
+	background-color: transparent;
+}
+
+.social-icon-group {
+	display: inline-flex;
+	width: 100px;
+	align-items: center;
+	justify-content: space-around;
+}
+.social-icon {
+	width: 24px;
+	height: 24px;
+	padding: 8px;
+	margin-right: 16px;
+}
+.copyright {
+	margin-top: 8px;
+}
+
+.copyright span {
+	margin: 0;
+	padding: 0;
+}

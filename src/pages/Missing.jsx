@@ -1,7 +1,7 @@
 //NPM packages
 import { Link } from "react-router-dom";
 
-const Missing = () => {
+export default function Missing() {
 	return (
 		<article style={{ padding: "100px" }}>
 			<h1>Oops!</h1>
@@ -11,6 +11,4 @@ const Missing = () => {
 			</div>
 		</article>
 	);
-};
-
-export default Missing;
+}

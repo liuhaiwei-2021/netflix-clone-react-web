@@ -1,8 +1,9 @@
 .search-container {
 	height: 44px;
 }
-.search-container .form-input .form-text {
-	height: 30px;
+.search-container .form-input {
+	display: inline;
+	height: 24px;
 }
 .search-btn {
 	background-color: transparent;
@@ -16,4 +17,12 @@
 	background-color: transparent;
 	width: 30px;
 	height: auto;
+	padding-top: 5px;
+}
+.search {
+	display: block;
+	align-items: center;
+}
+.search input {
+	height: 30px;
 }

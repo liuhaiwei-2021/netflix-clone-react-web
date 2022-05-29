@@ -32,14 +32,6 @@ export default function Landing() {
 									<li className="nfFormSpace field-email">
 										<div className="nfInput nfInputResponsive">
 											<div className="nfInputPlacement">
-												{/* <label
-													className="input_id"
-													placeholder="Email address">
-													<label
-														for="id_email_hero_fuji"
-														className="placeLabel">
-														Email address
-													</label> */}
 												<input
 													type="email"
 													name="email"
@@ -51,7 +43,6 @@ export default function Landing() {
 													maxlength="50"
 													minlength="5"
 												/>
-												{/* </label> */}
 											</div>
 										</div>
 									</li>

@@ -1,7 +1,7 @@
-import "../styles/SerieCard.css";
-import { useModal } from "../state/ModalContext";
+import "../../styles/SerieCard.css";
+import { useModal } from "../../state/ModalContext";
 import SerieInfo from "./SerieInfo";
-import { updateDocument } from "../scripts/fireStore";
+import { updateDocument } from "../../scripts/fireStore";
 
 export default function SerieCard({ serie }) {
 	const { imgURL, totalView, category } = serie;
