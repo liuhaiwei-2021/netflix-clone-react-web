@@ -1,8 +1,12 @@
 import "../styles/SeasonGroupHeader.css";
+import SeasonDropdownItem from "./SeasonDropdownItem";
 
-function SeasonGroupHeader({ season, hook }) {
+export default function SeasonGroupHeader({ seasons, hook }) {
 	const [seasonNumber, setSeasonNumber] = hook;
-	console.log(season);
+
+	const SeasonDropdownItems = seasons.map((seasonItem, index) => (
+		<SeasonDropdownItem key={index} setSeasonNumber={setSeasonNumber} seasonItem={seasonItem} />
+	));
 
 	return (
 		<div className="season-head-dropdown">
@@ -11,26 +15,9 @@ function SeasonGroupHeader({ season, hook }) {
 			<div className="dropdown">
 				<button className="dropbtn">Season {seasonNumber}</button>
 				<div className="dropdown-content">
-					<li>
-						<button
-							onClick={() => {
-								setSeasonNumber(2);
-							}}>
-							Season 2
-						</button>
-					</li>
-					<li>
-						<button
-							onClick={() => {
-								setSeasonNumber(1);
-							}}>
-							Season 1
-						</button>
-					</li>
+					<ul>{SeasonDropdownItems}</ul>
 				</div>
 			</div>
 		</div>
 	);
 }
-
-export default SeasonGroupHeader;

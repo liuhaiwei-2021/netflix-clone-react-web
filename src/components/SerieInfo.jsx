@@ -7,17 +7,18 @@ import { useModal } from "../state/ModalContext";
 import "../styles/SerieInfo.css";
 import EpisodeCard from "./EpisodeCard";
 import SeasonGroupHeader from "./SeasonGroupHeader";
+import Loader from "../scripts/Loader";
+import Error from "../components/Error";
+import YoutubePlayer from "./YoutubePlayer";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();
 	const [seasonNumber, setSeasonNumber] = useState(1);
-	const { name, season, genre, imgBackgroundURL, description, category, totalView } = serie;
+	const { name, seasons, genre, imgBackgroundURL, description, category } = serie;
 
-	const { data, loading, error } = useFetch(
+	const { data, error, loading } = useFetch(
 		"/categories/" + category + "/content/" + name + "/season" + seasonNumber
 	);
-	const test = readDocument("/categories/" + category + "/content/", name);
-	console.log("test", test);
 
 	const [seasonInfo, setSeasonInfo] = useState([]);
 
@@ -34,7 +35,12 @@ export default function SerieInfo({ serie }) {
 
 	return (
 		<div className="previewModal-wrapper bg-dark">
-			<button onClick={() => setModal(null)}>X</button>
+			{loading && <Loader />}
+			{error && <Error />}
+			<button className="serie-info-cancel" onClick={() => setModal(null)}>
+				X
+			</button>
+
 			<div className="serie-bg-img">
 				<img src={imgBackgroundURL} alt="" />
 			</div>
@@ -50,7 +56,12 @@ export default function SerieInfo({ serie }) {
 					</div>
 				</div>
 				<div className="episode-card-group">
-					<SeasonGroupHeader season={season} hook={[seasonNumber, setSeasonNumber]} />
+					{category !== "movies" && (
+						<SeasonGroupHeader
+							seasons={seasons}
+							hook={[seasonNumber, setSeasonNumber]}
+						/>
+					)}
 					<div>{SeasonInfo}</div>
 				</div>
 			</div>

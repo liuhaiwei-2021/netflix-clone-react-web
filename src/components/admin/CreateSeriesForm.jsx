@@ -1,32 +1,29 @@
 //NPM packages
 import { useState } from "react";
-
 // Project files
 import form from "../../data/serieForm.json";
 import { createFile } from "../../scripts/cloudStorage";
 import { createDocumentWithId } from "../../scripts/fireStore";
 import Loader from "../../scripts/Loader";
-import { useSeries } from "../../state/SeriesContext";
 import { useModal } from "../../state/ModalContext";
+import { useSeries } from "../../state/SeriesContext";
+import "../../styles/CreateSeriesForm.css";
 import Error from "../shared/Error";
 import InputField from "../shared/InputField";
-import "../../styles/CreateForm.css";
 
 export default function CreateForm() {
+	//global state
 	const { setModal } = useModal();
 	const { series, setSeries } = useSeries();
+	//local state
 	const [name, setName] = useState("");
-	const [category, setCategory] = useState("documentaries");
-	const [season, setSeason] = useState([]);
-	const [genre, setGenre] = useState(["Adventure documentaries"]);
+	const [category, setCategory] = useState("movies");
+	const [seasons, setSeasons] = useState([]);
+	const [genre, setGenre] = useState([""]);
 	const [description, setDescription] = useState("");
-
-	const [imgURL, setImgURL] = useState("");
-	const [imgBackgroundURL, setImgBackgroundURL] = useState(""); //background image
 	const [file, setFile] = useState(null);
 	const [backgroundFile, setBackgroundFile] = useState(null);
 
-	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
 
@@ -36,8 +33,8 @@ export default function CreateForm() {
 
 		const newSerie = {
 			name: name,
-			cateory: category,
-			season: season,
+			category: category,
+			seasons: [seasons],
 			description: description,
 			imgURL: "",
 			imgBackgroundURL: "",
@@ -59,14 +56,11 @@ export default function CreateForm() {
 		const payload = await createDocumentWithId(path, name, newSerie);
 		const { message, error, loading } = payload;
 
-		setMessage(message);
 		setError(error);
 		setLoading(loading);
 		setSeries([...series, newSerie]);
 		alert(message);
-		resetForm();
 		setModal(null);
-		console.log(error);
 	}
 
 	function onImageChoose(event) {
@@ -79,19 +73,14 @@ export default function CreateForm() {
 		setBackgroundFile(backgroundFile);
 	}
 
-	function resetForm() {
-		setName("");
-		setGenre("");
-		setCategory("");
-	}
 	return (
-		<form onSubmit={onCreate} className="add-form">
+		<form onSubmit={onCreate} className="create-form">
 			{loading && <Loader />}
 			{error && <Error />}
 
 			<InputField setup={form.name} state={[name, setName]} />
 			<InputField setup={form.category} state={[category, setCategory]} />
-			<InputField setup={form.season} state={[season, setSeason]} />
+			<InputField setup={form.seasons} state={[seasons, setSeasons]} />
 			<InputField setup={form.description} state={[description, setDescription]} />
 			<InputField setup={form.genre} state={[genre, setGenre]} />
 
@@ -123,15 +112,15 @@ export default function CreateForm() {
 					required
 				/>
 			</div>
-
-			<button className="form-button">Submit</button>
-			<button
-				onClick={() => {
-					setModal(null);
-				}}
-				className="form-button">
-				Cancel
-			</button>
+			<div className="button-roup">
+				<button className="form-button">Submit</button>
+				<button
+					onClick={() => {
+						setModal(null);
+					}}>
+					Cancel
+				</button>
+			</div>
 		</form>
 	);
 }

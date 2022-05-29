@@ -1,12 +1,12 @@
 .admin {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	gap: 24px 24px;
-	border-color: beige;
 	padding: 48px;
+	background-color: #333333;
+	color: #fff;
+	height: 100vh;
 }
 .admin button {
 	display: inline-block;
-	width: 100px;
+	width: 200px;
 	height: 50px;
+	border-radius: 8px;
 }
