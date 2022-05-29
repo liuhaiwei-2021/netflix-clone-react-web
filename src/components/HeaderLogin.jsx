@@ -1,19 +1,19 @@
 import "../styles/HeaderLogin.css";
+import { Link, NavLink } from "react-router-dom";
 
-export default function HeaderLogin() {
+import SearchBox from "./SearchBox";
+
+export default function HeaderLogin({ titles }) {
 	return (
 		<div className="header-login">
-			<a>
+			<Link className="navbar-link" to="/browse">
 				<img className="logo" src="assets/images/logo.png" alt="logo" />
-			</a>
-			<ul className="primary-navigation">
-				<li>Home</li>
-				<li>Series</li>
-				<li>Flims</li>
-				<li>Documentaries</li>
-			</ul>
+			</Link>
+			<ul className="primary-navigation"></ul>
 			<div className="secondary-navigation">
-				<div className="nav-element">search</div>
+				<div className="nav-element">
+					<SearchBox titles={titles} />
+				</div>
 
 				<div className="nav-element">
 					<div className="account-menu-item">

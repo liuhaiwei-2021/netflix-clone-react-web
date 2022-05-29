@@ -1,0 +1,26 @@
+.search-page {
+	height: 100vh;
+	background-color: #000;
+	margin: 0 auto;
+}
+.search-section {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.serie-card {
+	border-radius: 4px;
+	padding: 0 0.2vw;
+}
+.serie-card:hover {
+	transform: scale(1.1);
+}
+
+.serie-card img {
+	width: 20%;
+	height: auto;
+	border-radius: 4px;
+}
+button {
+	padding: none;
+}

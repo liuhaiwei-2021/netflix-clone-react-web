@@ -1,0 +1,6 @@
+{
+	"search": {
+		"placeholder": "titles...",
+		"required": true
+	}
+}
