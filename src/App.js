@@ -6,14 +6,17 @@ import Unauthorized from "./components/authentication/Unauthorized";
 import Modal from "./components/shared/Modal";
 import Admin from "./pages/Admin";
 import Browse from "./pages/Browse";
+import Flims from "./pages/Films";
 import Landing from "./pages/Landing";
 import Layout from "./pages/Layout";
 import LogIn from "./pages/LogIn";
 import Missing from "./pages/Missing";
 import RecoverPassword from "./pages/RecoverPassword";
-import SignUp from "./pages/SignUp";
 import Search from "./pages/Search";
+import Series from "./pages/Series";
+import SignUp from "./pages/SignUp";
 import "./styles/App.css";
+import Documentaries from "./pages/Documentaries.jsx";
 
 export default function App() {
 	const ROLES = {
@@ -37,10 +40,13 @@ export default function App() {
 					<Route element={<RequireAuth allowedRoles={[ROLES.Customer, ROLES.Editor]} />}>
 						<Route path="/browse" element={<Browse />} />
 						<Route path="/search" element={<Search />} />
+						<Route path="/series" element={<Series />} />
+						<Route path="/flims" element={<Flims />} />
+						<Route path="/documentaries" element={<Documentaries />} />
 					</Route>
 
 					<Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-						{<Route path="/admin" element={<Admin />} />}
+						<Route path="/admin" element={<Admin />} />
 					</Route>
 
 					{/* catch all */}
