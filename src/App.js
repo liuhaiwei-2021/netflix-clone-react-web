@@ -30,7 +30,7 @@ export default function App() {
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					{/* public routes */}
-					<Route path="/" element={<Landing />} />
+					<Route path="/" element={<LogIn />} />
 					<Route path="/login" element={<LogIn />} />
 					<Route path="/recover" element={<RecoverPassword />} />
 					<Route path="/signup" element={<SignUp />} />

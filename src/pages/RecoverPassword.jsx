@@ -1,8 +1,7 @@
 // NPM packages
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
-// Project files
+//project files
+import Header from "../components/shared/Header";
 import InputField from "../components/shared/InputField";
 import form from "../data/recoverPasswordForm.json";
 import { recoverUser } from "../scripts/firebaseAuth";
@@ -15,25 +14,21 @@ export default function RecoverPassword() {
 	// Method
 	async function onRecover(event) {
 		event.preventDefault();
-
 		await recoverUser(email);
 		alert(`We sent an email to ${email}. Check you spam folder as well.`);
 	}
 
 	return (
 		<div className="recover-password">
+			<Header />
 			<h1>Forgot Email/Password</h1>
 			<p>How would you like to reset your password?</p>
 			<p> We will send you an email with instructions on how to reset your password.</p>
 
 			<form onSubmit={onRecover}>
 				<InputField setup={form.email} state={[email, setEmail]} />
-				<button>Email Me</button>
+				<button className="recover-btn">Email Me</button>
 			</form>
-			<p>
-				Did you remembered your password?
-				<Link to="/login">Click here</Link> to go back the login page.
-			</p>
 		</div>
 	);
 }

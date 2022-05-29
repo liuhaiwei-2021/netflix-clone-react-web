@@ -64,18 +64,6 @@ export default function LogIn() {
 							<InputField setup={form.password} state={[password, setPassword]} />
 							<button className="login-button">Sign In</button>
 							<div className="login-form-help">
-								<div className="login-remember-me">
-									<input
-										type="checkbox"
-										name="rememberMe"
-										id="bxid_rememberMe_true"
-									/>
-									<label htmlFor="bxid_rememberMe_true">
-										<span className="login-remember-me-label-text">
-											Remember me
-										</span>
-									</label>
-								</div>
 								<Link to="/recover" className="login-help-link">
 									Need help?
 								</Link>
@@ -90,12 +78,6 @@ export default function LogIn() {
 								<Link to="/signup"> Sign up now.</Link>
 							</p>
 						</div>
-						<p className="term-of-use">
-							<span>
-								This page is protected by Google reCAPTCHA to ensure you're not a
-								bot. Learn more.
-							</span>
-						</p>
 					</div>
 				</div>
 			</div>

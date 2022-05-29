@@ -116,3 +116,7 @@
 .email-form-title {
 	padding-bottom: 20px;
 }
+.nfInputPlacement input {
+	outline: none;
+	border: none;
+}
