@@ -1,17 +1,23 @@
+// NPM packages
+import { useEffect, useState } from "react";
+// project files
 import useFetch from "../hooks/useFetch";
-import { useState, useEffect } from "react";
+import { readDocument } from "../scripts/fireStore";
 import { useModal } from "../state/ModalContext";
-import EpisodeCard from "./EpisodeCard";
 import "../styles/SerieInfo.css";
-import YoutubePlayer from "./YoutubePlayer";
+import EpisodeCard from "./EpisodeCard";
 import SeasonGroupHeader from "./SeasonGroupHeader";
+import Loader from "../scripts/Loader";
+import Error from "../components/Error";
+import YoutubePlayer from "./YoutubePlayer";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();
-	const { name, season, genre, imgBackgroundURL, description, category, totalView } = serie;
+	const [seasonNumber, setSeasonNumber] = useState(1);
+	const { name, seasons, genre, imgBackgroundURL, description, category } = serie;
 
-	const { data, loading, error } = useFetch(
-		"/categories/" + category + "/content/" + name + "/season1/"
+	const { data, error, loading } = useFetch(
+		"/categories/" + category + "/content/" + name + "/season" + seasonNumber
 	);
 
 	const [seasonInfo, setSeasonInfo] = useState([]);
@@ -19,7 +25,7 @@ export default function SerieInfo({ serie }) {
 	//methods
 	useEffect(() => {
 		setSeasonInfo(data);
-	}, [data]);
+	}, [data, seasonNumber]);
 
 	const SeasonInfo = seasonInfo.map((episode) => (
 		<div key={episode.id}>
@@ -28,7 +34,13 @@ export default function SerieInfo({ serie }) {
 	));
 
 	return (
-		<div className="previewModal-wrapper bg-dark" onClick={() => setModal(null)}>
+		<div className="previewModal-wrapper bg-dark">
+			{loading && <Loader />}
+			{error && <Error />}
+			<button className="serie-info-cancel" onClick={() => setModal(null)}>
+				X
+			</button>
+
 			<div className="serie-bg-img">
 				<img src={imgBackgroundURL} alt="" />
 			</div>
@@ -44,7 +56,12 @@ export default function SerieInfo({ serie }) {
 					</div>
 				</div>
 				<div className="episode-card-group">
-					<SeasonGroupHeader />
+					{category !== "movies" && (
+						<SeasonGroupHeader
+							seasons={seasons}
+							hook={[seasonNumber, setSeasonNumber]}
+						/>
+					)}
 					<div>{SeasonInfo}</div>
 				</div>
 			</div>

@@ -3,20 +3,23 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-between;
+	z-index: 4;
 }
 
 .dropbtn {
-	background-color: #4caf50;
+	background-color: #141414;
 	color: white;
-	padding: 16px;
+	padding: 9px 18px;
 	font-size: 16px;
-	border: none;
+	border: 1px solid #4d4d4d;
 	cursor: pointer;
 }
 
 .dropdown {
 	position: relative;
 	display: inline-block;
+	width: 154px;
+	height: 25px;
 }
 
 .dropdown-content {
@@ -44,5 +47,11 @@
 }
 
 .dropdown:hover .dropbtn {
-	background-color: #3e8e41;
+	background-color: #141414;
+}
+
+.season-head-dropdown ul {
+	padding: 0;
+	margin: 0;
+	border: 1px solid #4d4d4d;
 }

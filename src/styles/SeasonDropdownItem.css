@@ -1,0 +1,17 @@
+.season-dropdown-item {
+	background-color: #242524;
+	color: #fff;
+	height: 44px;
+	margin: 0 auto;
+	text-align: center;
+	cursor: pointer;
+	line-height: 44px;
+}
+
+.season-dropdown-item span {
+	font-size: 18px;
+	padding: 24px;
+}
+.season-dropdown-item:hover {
+	background-color: #333333;
+}

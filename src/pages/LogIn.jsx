@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 
-// Project files
+// project files
 import { loginUser } from "../scripts/firebaseAuth";
 import { useAuth } from "../state/AuthContext";
 import { useUser } from "../state/UserContext";
@@ -14,7 +14,7 @@ import "../styles/LogIn.css";
 import LoginWrapperBackground from "../components/login/LoginWrapperBackground";
 
 export default function LogIn() {
-	//Global state
+	// global state
 	const { setUID, setLoggedIn } = useAuth();
 	const { setUser } = useUser();
 
@@ -22,12 +22,12 @@ export default function LogIn() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
-	//properties
+	// properties
 	const navigation = useNavigate();
 	const location = useLocation();
 	const from = location.state?.from?.pathname || "/";
 
-	// Method
+	// Methods
 	async function onLogin(e) {
 		e.preventDefault();
 		const payload = await loginUser(email, password);

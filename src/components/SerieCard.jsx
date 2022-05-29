@@ -4,7 +4,7 @@ import SerieInfo from "./SerieInfo";
 import { updateDocument } from "../scripts/fireStore";
 
 export default function SerieCard({ serie }) {
-	const { imgURL, name, totalView, category } = serie;
+	const { imgURL, totalView, category } = serie;
 	const { setModal } = useModal();
 
 	function view() {

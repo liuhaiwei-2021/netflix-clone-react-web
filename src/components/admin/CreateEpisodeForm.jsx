@@ -1,30 +1,27 @@
 //NPM packages
 import { useState } from "react";
-
 // Project files
 import form from "../../data/serieForm.json";
 import { createFile } from "../../scripts/cloudStorage";
 import { createDocumentWithId } from "../../scripts/fireStore";
 import Loader from "../../scripts/Loader";
 import { useModal } from "../../state/ModalContext";
+import "../../styles/CreateSeriesForm.css";
 import Error from "../shared/Error";
 import InputField from "../shared/InputField";
-import "../../styles/CreateForm.css";
 
 export default function CreateEpisodeForm() {
+	//global state
 	const { setModal } = useModal();
-
-	const [name, setName] = useState("Tiny Creatures");
+	// local state
+	const [name, setName] = useState("");
 	const [episodeName, setEpisodeName] = useState("");
-	const [category, setCategory] = useState("documentaries");
+	const [category, setCategory] = useState("movies");
 	const [season, setSeason] = useState(1);
-	const [episodeNumber, setEpisodeNumber] = useState();
+	const [episodeNumber, setEpisodeNumber] = useState(1);
 	const [youtubeID, setYoutubeID] = useState("");
 	const [description, setDescription] = useState("");
-
-	const [imgURL, setImgURL] = useState("");
 	const [file, setFile] = useState(null);
-
 	const [message, setMessage] = useState(null);
 	const [error, setError] = useState(null);
 	const [loading, setLoading] = useState(false);
@@ -62,9 +59,7 @@ export default function CreateEpisodeForm() {
 		setLoading(loading);
 
 		alert(message);
-		resetForm();
 		setModal(null);
-		console.log(error);
 	}
 
 	function onImageChoose(event) {
@@ -72,12 +67,8 @@ export default function CreateEpisodeForm() {
 		setFile(file);
 	}
 
-	function resetForm() {
-		setName("");
-		setCategory("");
-	}
 	return (
-		<form onSubmit={onCreate} className="add-form">
+		<form onSubmit={onCreate} className="create-form">
 			{loading && <Loader />}
 			{error && <Error />}
 
@@ -91,7 +82,6 @@ export default function CreateEpisodeForm() {
 
 			<div className="upload-img">
 				<label className="custom-file-upload" htmlFor="file-upload"></label>
-
 				<input
 					onChange={onImageChoose}
 					id="file-upload"
@@ -102,12 +92,11 @@ export default function CreateEpisodeForm() {
 				/>
 			</div>
 
-			<button className="form-button">Submit</button>
+			<button>Submit</button>
 			<button
 				onClick={() => {
 					setModal(null);
-				}}
-				className="form-button">
+				}}>
 				Cancel
 			</button>
 		</form>

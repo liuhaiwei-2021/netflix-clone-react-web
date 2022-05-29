@@ -14,13 +14,18 @@
 		"placeholder": "series",
 		"required": true
 	},
+	"seasons": {
+		"label": "Seasons(category = movies,season= 1)",
+		"placeholder": "1,2",
+		"required": true
+	},
 	"season": {
-		"label": "Season",
-		"placeholder": "3...",
+		"label": "Season(category = movies,season= 1)",
+		"placeholder": "1,2",
 		"required": true
 	},
 	"episodeNumber": {
-		"label": "Episode",
+		"label": "Episode(category = movies,episode = 1)",
 		"placeholder": "1...",
 		"required": true
 	},
