@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import data from "../data/search.json";
-import InputField from "../components/shared/InputField";
-import "../styles/SearchBox.css";
-import { useSearch } from "../state/SearchContext";
+import data from "../../data/search.json";
+import InputField from "../shared/InputField";
+import "../../styles/SearchBox.css";
+import { useSearch } from "../../state/SearchContext";
 
 export default function SearchBox({ titles }) {
 	const { searchResult, setSearchResult } = useSearch();
@@ -12,11 +12,9 @@ export default function SearchBox({ titles }) {
 	const navigation = useNavigate();
 
 	const handleSearch = () => {
-		setIsShow(!isShow);
 		const result = titles.find(
 			(element) => element.name.toLowerCase() === searchWords.toLowerCase().trim()
 		);
-		console.log(result);
 		if (result === undefined) {
 		} else {
 			navigation("/search");
@@ -25,13 +23,17 @@ export default function SearchBox({ titles }) {
 	};
 
 	return (
-		<div className="search-container">
-			<button className="search-btn">
-				<i onClick={handleSearch} className="fa fa-search search-icon"></i>
-				{isShow && <InputField setup={data.search} state={[searchWords, setSearchWords]} />}
-			</button>
+		<div className="nav-element">
+			<div className="search-container">
+				<form className="search">
+					<InputField setup={data.search} state={[searchWords, setSearchWords]} />
+					<button className="search-btn">
+						<img onClick={handleSearch} src="assets/images/search.svg" alt="" />
+					</button>
+				</form>
 
-			<a href="/#" className="search-btn"></a>
+				<a href="/#" className="search-btn"></a>
+			</div>
 		</div>
 	);
 }

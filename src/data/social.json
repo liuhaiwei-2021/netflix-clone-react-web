@@ -1,0 +1,26 @@
+[
+	{
+		"id": 0,
+		"title": "facebook",
+		"socialURL": "https://www.facebook.com/NetflixNordic",
+		"imageURL": "assets/images/social/facebook.svg"
+	},
+	{
+		"id": 1,
+		"title": "instagram",
+		"socialURL": "https://www.instagram.com/NetflixNordic/",
+		"imageURL": "assets/images/social/instagram.svg"
+	},
+	{
+		"id": 2,
+		"title": "twitter",
+		"socialURL": "https://twitter.com/Netflixnordic",
+		"imageURL": "assets/images/social/twitter.svg"
+	},
+  {
+		"id": 3,
+		"title": "youtube",
+		"socialURL": "https://www.youtube.com/user/netflixnordics",
+		"imageURL": "assets/images/social/youtube.svg"
+	}
+]

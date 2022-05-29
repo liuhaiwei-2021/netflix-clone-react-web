@@ -1,8 +1,8 @@
 import SerieCard from "./SerieCard";
-import "../styles/SerieCards.css";
+import "../../styles/SerieCards.css";
 
 export default function SectionsCards({ data, title }) {
-	const Series = data.slice(0, 6).map((serie) => (
+	const Series = data.map((serie) => (
 		<div key={serie.id}>
 			<SerieCard serie={serie} />
 		</div>

@@ -1,4 +1,6 @@
+//project files
 import ReactPlayer from "react-player/youtube";
+
 export default function ReactVideoPlayer({ linkID }) {
 	return (
 		<div className="player-wrapper">

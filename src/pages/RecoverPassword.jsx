@@ -22,17 +22,13 @@ export default function RecoverPassword() {
 
 	return (
 		<div className="recover-password">
-			<p>
-				Please write the email you used to created your account so we can send you an email
-				with instructions on how to reset and create a new password.
-			</p>
-			<p>
-				<b>🚨 Note:</b>
-				Don't forget to check every inbox including the spam folder.
-			</p>
+			<h1>Forgot Email/Password</h1>
+			<p>How would you like to reset your password?</p>
+			<p> We will send you an email with instructions on how to reset your password.</p>
+
 			<form onSubmit={onRecover}>
 				<InputField setup={form.email} state={[email, setEmail]} />
-				<button>Submit</button>
+				<button>Email Me</button>
 			</form>
 			<p>
 				Did you remembered your password?

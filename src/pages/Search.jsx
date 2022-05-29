@@ -1,7 +1,7 @@
 import { useEffect } from "react";
-import HeaderLogin from "../components/HeaderLogin";
+import HeaderLogin from "../components/header/HeaderLogin";
 import { useSearch } from "../state/SearchContext";
-import SerieCard from "../components/SerieCard";
+import SerieCard from "../components/titles/SerieCard";
 import "../styles/Search.css";
 
 export default function Search() {
@@ -18,7 +18,7 @@ export default function Search() {
 				{!searchResult && (
 					<div>
 						<h3>Your search did not have any matches.</h3>
-						<h5> Suggestions: - Try</h5>
+						<h5> Suggestions: </h5>
 
 						<p>- Try different keywords - Looking for a film or TV programme?</p>
 					</div>

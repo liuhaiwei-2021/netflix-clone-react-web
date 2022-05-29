@@ -32,7 +32,6 @@ export default function App() {
 					<Route path="/recover" element={<RecoverPassword />} />
 					<Route path="/signup" element={<SignUp />} />
 					<Route path="/unauthorized" element={<Unauthorized />} />
-					<Route path="/admin" element={<Admin />} />
 
 					{/* I want to protect these routes */}
 					<Route element={<RequireAuth allowedRoles={[ROLES.Customer, ROLES.Editor]} />}>
@@ -41,7 +40,7 @@ export default function App() {
 					</Route>
 
 					<Route element={<RequireAuth allowedRoles={[ROLES.Editor]} />}>
-						{/* <Route path="/admin" element={<Admin />} /> */}
+						{<Route path="/admin" element={<Admin />} />}
 					</Route>
 
 					{/* catch all */}

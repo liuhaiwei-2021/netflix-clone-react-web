@@ -1,15 +1,13 @@
 // NPM packages
 import { useEffect, useState } from "react";
 // project files
-import useFetch from "../hooks/useFetch";
-import { readDocument } from "../scripts/fireStore";
-import { useModal } from "../state/ModalContext";
-import "../styles/SerieInfo.css";
+import useFetch from "../../hooks/useFetch";
+import Loader from "../../scripts/Loader";
+import { useModal } from "../../state/ModalContext";
+import "../../styles/SerieInfo.css";
+import Error from "../shared/Error";
 import EpisodeCard from "./EpisodeCard";
 import SeasonGroupHeader from "./SeasonGroupHeader";
-import Loader from "../scripts/Loader";
-import Error from "../components/Error";
-import YoutubePlayer from "./YoutubePlayer";
 
 export default function SerieInfo({ serie }) {
 	const { setModal } = useModal();

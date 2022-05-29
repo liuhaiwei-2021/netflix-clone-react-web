@@ -1,16 +1,19 @@
 //NPM packages
 import { useEffect } from "react";
-// File packages
+
+// file packages
+import Footer from "../components/footer/Footer";
+import HeaderLogin from "../components/header/HeaderLogin";
+import Error from "../components/shared/Error";
+import SectionsCards from "../components/titles/SectionsCards";
+import Top10 from "../components/titles/Top10";
 import useFetch from "../hooks/useFetch";
+import Loader from "../scripts/Loader";
+import randArray from "../scripts/randArray";
 import reverseArrayByView from "../scripts/reverseArrayByView";
-import HeaderLogin from "../components/HeaderLogin";
-import SectionsCards from "../components/SectionsCards";
-import Top10 from "../components/Top10";
 import { useDocumentaries } from "../state/DocumentariesContext";
 import { useMovies } from "../state/MoviesContext";
 import { useSeries } from "../state/SeriesContext";
-import Loader from "../scripts/Loader";
-import Error from "../components/Error";
 import "../styles/Browse.css";
 
 export default function Browse() {
@@ -33,19 +36,27 @@ export default function Browse() {
 	titles = titles.concat(series, documentaries, movies).sort(reverseArrayByView("totalView"));
 	const top10 = titles.slice(0, 10);
 
+	const randTitle = randArray(titles);
+
 	return (
-		<div className="browse">
-			{(seriesData.loading || documentariesData.loading || moviesData.loading) && <Loader />}
-			{(seriesData.error || documentariesData.error || moviesData.error) && <Error />}
-			<HeaderLogin titles={titles} />
-			<div className="main-view">
-				<div>
-					<SectionsCards data={series} title={"Series"} />
-					<SectionsCards data={documentaries} title={"Documentaries"} />
-					<SectionsCards data={movies} title={"Movies"} />
-					<Top10 data={top10} />
+		<>
+			<div className="browse">
+				{(seriesData.loading || documentariesData.loading || moviesData.loading) && (
+					<Loader />
+				)}
+				{(seriesData.error || documentariesData.error || moviesData.error) && <Error />}
+				<HeaderLogin titles={titles} />
+				<div className="main-view">
+					{/* <YoutubePlayer name={randTitle.name} /> */}
+					<div>
+						<SectionsCards data={series} title={"Series"} />
+						<SectionsCards data={documentaries} title={"Documentaries"} />
+						<SectionsCards data={movies} title={"Movies"} />
+						<Top10 data={top10} />
+					</div>
 				</div>
 			</div>
-		</div>
+			<Footer />
+		</>
 	);
 }

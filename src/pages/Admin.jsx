@@ -5,7 +5,7 @@ import { useModal } from "../state/ModalContext";
 import "../styles/Admin.css";
 
 export default function Admin() {
-	//Global state
+	//global state
 	const { setModal } = useModal();
 
 	return (
