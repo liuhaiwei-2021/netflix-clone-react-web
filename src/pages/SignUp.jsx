@@ -1,15 +1,14 @@
 // NPM packages
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // Project files
-import { createDocumentWithId } from "../scripts/fireStore";
-import { createUser } from "../scripts/firebaseAuth";
-import { useAuth } from "../state/AuthContext";
-
-import form from "../data/signUpForm.json";
+import Header from "../components/shared/Header";
 import InputField from "../components/shared/InputField";
+import form from "../data/signUpForm.json";
+import { createUser } from "../scripts/firebaseAuth";
+import { createDocumentWithId } from "../scripts/fireStore";
+import { useAuth } from "../state/AuthContext";
 import "../styles/SignUp.css";
 
 export default function SignUp() {
@@ -48,7 +47,6 @@ export default function SignUp() {
 			avatar: "https://img.icons8.com/external-dreamstale-lineal-dreamstale/32/000000/external-avatar-avatars-dreamstale-lineal-dreamstale.png",
 		};
 		const document = await createDocumentWithId("users", uid, user);
-
 		return document;
 	}
 
@@ -63,8 +61,8 @@ export default function SignUp() {
 
 	return (
 		<div className="sign-up">
+			<Header />
 			<h1>Sign Up</h1>
-			<h2>Start choose your future today!</h2>
 			<form onSubmit={onSignUp}>
 				<InputField setup={form.name} state={[name, setName]} />
 				<InputField setup={form.email} state={[email, setEmail]} />

@@ -3,7 +3,8 @@
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	margin-top: 80px;
+	background-color: #fff;
+	color: #000;
 }
 .form-input {
 	margin-bottom: 12px;
@@ -22,14 +23,13 @@
 	width: 300px;
 	align-self: flex-start;
 	height: 50px;
-	border-radius: px;
+	border: none;
 }
 .btn-sign-up {
 	border: none;
 	width: 300px;
 	height: 50px;
-	border-radius: 50px;
-	background: #efdc75;
+	background: #0080ff;
 	box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 	margin-bottom: 1rem;
 }

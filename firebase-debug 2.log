@@ -1,0 +1,14 @@
+[debug] [2022-05-29T19:20:02.853Z] ----------------------------------------------------------------------
+[debug] [2022-05-29T19:20:02.854Z] Command:       /opt/homebrew/Cellar/node/16.11.1/bin/node /opt/homebrew/bin/firebase deploy
+[debug] [2022-05-29T19:20:02.854Z] CLI Version:   10.7.1
+[debug] [2022-05-29T19:20:02.854Z] Platform:      darwin
+[debug] [2022-05-29T19:20:02.854Z] Node Version:  v16.11.1
+[debug] [2022-05-29T19:20:02.858Z] Time:          Sun May 29 2022 21:20:02 GMT+0200 (Central European Summer Time)
+[debug] [2022-05-29T19:20:02.858Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-29T19:20:02.899Z] Object "" in "firebase.json" has unknown property: {"additionalProperty":"rewrites"}
+[debug] [2022-05-29T19:20:02.901Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-29T19:20:02.901Z] > authorizing via signed-in user (liuhaiwei2016@gmail.com)
+[debug] [2022-05-29T19:20:02.901Z] [iam] checking project netflix-clone-react-web for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2022-05-29T19:20:02.903Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-react-web:testIamPermissions [none]
+[debug] [2022-05-29T19:20:02.903Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/netflix-clone-react-web:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
